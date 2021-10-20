@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Kenya No1 surveyor">
+    <meta name="keywords" content="Landnet, surveyor, surveyor kenya, surveyor kiambu, surveyor ruiru, surveyor nairobi, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Landnet |{% block title %}{% endblock %} </title>
+
+    {% include 'partials/_csslinks.html' %}
+
+</head>
+
+
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- top header -->
+{% include 'partials/_topbar.html' %}
+
+
+<!-- Header  -->
+{% include 'partials/_header.html' %}
+
+
+<!-- Main Content -->
+{% block content %} {% endblock %}
+
+<!-- Footer -->
+{% include 'partials/_footer.html' %}
+
+
+<!--  javascripts file here -->
+{% include 'partials/_javascriptlinks.html' %}
+
+
+<body>
+
+</html>

@@ -1,0 +1,18 @@
+
+remaining
+* add newsletter
+* add dashboard
+* profile page ****
+* add map button ****
+* dashboard
+* Hitcount
+* share buttons ****
+* adverts - create ads and landing pages
+* admin security
+* Search--------
+* user, profile,
+* accounts registration, password and email change
+* adding to github
+* adding online
+* blog
+* ( adding google registration )

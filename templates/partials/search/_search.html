@@ -1,0 +1,55 @@
+<div class="filter-search">
+    <div class="container ">
+        <div class="w3-white w3-round  w3-card" style="padding:10px">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <form action="{% url 'search' %}">
+                        <!-- Form Row 1 -->
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label class="sr-only">Keywords</label>
+                                <input type="text" name="keywords" class="form-control" placeholder="Search" value="{{ values.keywords }}">
+                            </div>
+
+                        </div>
+                        <!-- Form Row 2 -->
+                        <div class="form-row">
+                            <div class="col-md-5 mb-3">
+                                <label class="sr-only">Town</label>
+                                <input type="text" name="town" class="form-control" placeholder="Town" value="{{ values.town }}">
+                            </div>
+
+                            <div class="col-md-2 mb-3">
+                                <label class="sr-only">For_rs</label>
+                                <select name="for_rs" class="form-control">
+                                <option selected="true" disabled="disabled">For_rs</option>
+                                {% for key,value in for_rs_choices.items %}
+                                    <option value="{{ key }}"
+                                    {% if key == values.for_rs %}
+                                    selected
+                                    {% endif %}
+                                    >{{ value }}</option>
+                                {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="col-md-5 mb-3">
+                                <select name="price" class="form-control">
+                        <option selected="true" disabled="disabled">Max Price </option>
+                        {% for key,value in price_choices.items %}
+                            <option value="{{ key }}"
+                            {% if key == values.price %}
+                              selected
+                            {% endif %}
+                            >{{ value }}</option>
+                          {% endfor %}
+                      </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

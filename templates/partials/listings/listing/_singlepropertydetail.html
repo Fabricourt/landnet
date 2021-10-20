@@ -1,0 +1,116 @@
+{% load static %}
+<section class="property-details">
+    <div class="container">
+        <div class="row sp-40 spt-40">
+            <div class="col-lg-8">
+                <div class="p-ins">
+                    <div class="row details-top">
+                        <div class="col-lg-12">
+                            <div class="t-details">
+                                <div class="register-id">
+                                    <h3 class="w3-margin-bottom">
+                                        {% if listing.house or listing.rental %} {{listing.house_type}} {% elif listing.plot %} {{listing.plot_type}} {% endif %}
+                                    </h3>
+
+                                </div>
+                                <div class="popular-room-features single-property">
+                                    {% if listing.house or listing.rental %} {% if listing.sqft %}
+                                    <div class="room-features ">
+
+                                        <div class="room-info ">
+                                            {% if listing.sqft %}
+                                            <div class="size ">
+                                                <p>Lot Size sqft</p>
+                                                <img src="{% static 'img/rooms/size.png' %} " alt=" ">
+
+                                                <span>{{listing.sqft}} </span>
+
+                                            </div>
+                                            {% endif %} {% if listing.bedrooms %}
+                                            <div class="beds ">
+                                                <p>Beds</p>
+                                                <img src="{% static 'img/rooms/bed.png' %} " alt=" ">
+
+                                                <span>{{listing.bedrooms}} </span>
+
+                                            </div>
+                                            {% endif %} {% if listing.bathrooms %}
+                                            <div class="baths ">
+                                                <p>Baths</p>
+                                                <img src="{% static 'img/rooms/bath.png' %} " alt=" ">
+
+                                                <span>{{listing.bathrooms}} </span>
+
+                                            </div>
+                                            {% endif %} {% if listing.garage %}
+                                            <div class="garage ">
+                                                <p>Garage</p>
+                                                <img src="{% static 'img/rooms/garage.png' %} " alt=" ">
+
+                                                <span>{{listing.garage}} </span>
+
+                                            </div>
+                                            {% endif %}
+
+                                        </div>
+
+                                    </div>
+                                    {% endif %} {% endif %} {% if listing.plot %} {% if listing.soil_type %}
+                                    <div class="room-features ">
+                                        <div class="room-info ">
+                                            <span style="margin-top: 1px; "></span> {% if listing.large_plot_size or listing.plot_size %}
+                                            <div class="size w3-large">
+
+                                                <img src="{% static 'img/rooms/size.png' %} " alt=" "> {% if listing.large_plot_size %}
+                                                <span>{{listing.large_plot_size}} Acres </span> {% elif listing.plot_size %}
+                                                <span>{{listing.plot_size}} </span> {% endif %}
+                                            </div>
+                                            {% endif %} {% if listing.soil_type %}
+                                            <div class="beds w3-large">
+
+                                                <span class=" "><i class="fas fa-th w3-text-brown "></i> {{listing.soil_type}}</span>
+
+                                            </div>
+                                            {% endif %} {% if listing.document_type %}
+                                            <div class="baths w3-large">
+
+                                                <span class="w3-normal "><i class="fas fa-certificate w3-text-red "></i> {{listing.document_type}}</span>
+
+                                            </div>
+                                            {% endif %}
+
+                                        </div>
+                                    </div>
+                                    {% endif %} {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="property-description">
+                                <h4>Description</h4>
+                                {{listing.description|capfirst|safe}}
+                            </div>
+                            <div class="property-features">
+                                <h4>Property Features</h4>
+                                <div class="w3-row">
+                                    {% for feature in listing.features.all %}
+                                    <div class="w3-col l4 m4 s6 w3-padding">
+                                        <img src="{% static  'img/check.png' %}" alt="">
+                                        <span class="w3-normal " style="">{{feature.label|capfirst}}</span>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                {% include 'partials/listings/listing/_realtorcontact.html' %} {% include 'partials/listings/listing/_listingcard-2.html' %}
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% load static %} {% load humanize %} {% block title %} {{listing.title|capfirst}} {% endblock %} {% block content %}
+<!-- Hero Section Begin -->
+<section class="hero-section set-bg single-property-r" data-setbg="{% static  'img/bg.jpg' %}">
+    <div class="container hero-text text-white">
+        <h2>Homes Property</h2>
+        <div class="w3-hide">
+          <button class="btn w3-purple"><a href="user-listings">user-listings</a></button>
+          <button class="btn w3-blue"><a href="create-new-listing">Add</a></button>
+          <button class="btn w3-green"><a href="listing-update">Update</a></button>
+          <button class="btn w3-red"><a href="listing-delete">Delete</a></button>
+        </div>
+
+        <!-- Alerts -->
+        {% include 'partials/_alerts.html' %}
+        <!--Alerts end-->
+    </div>
+</section>
+<!-- Hero Section End -->
+
+<!-- Filter Search Section Begin -->
+{% include 'partials/search/_search.html' %}
+<!-- Filter Search Section End -->
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<!--Alerts end-->
+
+<!-- Single Property Section Begin -->
+{% include 'partials/listings/listing/_singleproperty.html' %}
+<!-- Single Property End -->
+
+<!-- Single Property Deatails Section Begin -->
+{% include 'partials/listings/listing/_singlepropertydetail.html' %}
+<!-- Single Property Deatails Section End -->
+
+{% endblock %}

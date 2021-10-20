@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% load static %} {% load humanize %} {% block title %} Listings {% endblock %} {% block content %}
+
+{% include 'pages/underconstruction.html' %}
+<section class="w3-hide">
+
+
+<!-- Hero Section Begin -->
+{% include 'partials/listings/_heroimageheader.html' %}
+<!-- Hero Section End -->
+
+<!-- Filter Search Section Begin -->
+{% include 'partials/search/_search.html' %}
+<!-- Filter Search Section End -->
+
+<!-- listing card Section Begin -->
+{% include 'partials/listings/_listingcard.html' %}
+<!-- listing card Section End -->
+
+</section>
+
+
+{% endblock %}

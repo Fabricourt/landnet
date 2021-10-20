@@ -1,0 +1,34 @@
+{% load static %}
+<div class="row pb-30">
+    <div class="col-lg-12">
+        <div class="contact-service">
+            <img src="{{listing.realtor.photo.url}}" alt="" class="w3-circle w3-border" style="width:170px; height:170px; padding: 8px">
+            <p>Listed by</p>
+            <h5>{{listing.realtor|capfirst}}</h5>
+            <table>
+                {% if listing.realtor.office %}
+                <tr>
+                    <td>Office : <span>{{listing.realtor.office}}</span></td>
+                </tr>
+                {% endif %} {% if listing.realtor.mobile %}
+                <tr>
+                    <td>Mobile : <span>{{listing.realtor.mobile}}</span></td>
+                </tr>
+                {% endif %} {% if listing.realtor.fax %}
+                <tr>
+                    <td>Fax : <span>{{listing.realtor.fax}}</span></td>
+                </tr>
+                {% endif %} {% if listing.realtor.whatsapp %}
+                <tr>
+                    <td>WhatsApp : <span>{{listing.realtor.whatsapp}}</span></td>
+                </tr>
+                {% endif %} {% if listing.realtor.email %}
+                <tr>
+                    <td>Email : <span>{{listing.realtor.email}}</span></td>
+                </tr>
+                {% endif %}
+            </table>
+            <a href="#" class="site-btn list-btn" data-toggle="modal" data-target="#inquiryModal">Book viewing Here</a> {% include 'partials/listings/listing/_modalcontact.html' %}
+        </div>
+    </div>
+</div>

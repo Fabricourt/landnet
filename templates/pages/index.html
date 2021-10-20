@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% load static %} {% load humanize %} {% block title %} Home {% endblock %} {% block content %}
+
+
+<!-- main-slider -->
+{% include 'partials/home/_mainslider.html' %}
+<!-- /main-slider -->
+
+<!-- about page about section -->
+{% include 'partials/home/_about.html' %}
+<!-- //about page about section -->
+
+
+<!--  services section -->
+{% include 'partials/home/_services.html' %}
+<!--  //services section -->
+
+<!--  News section -->
+{% include 'partials/home/_news.html' %}
+<!--  //News section -->
+
+<!-- customers Section -->
+{% include 'partials/home/_customers.html' %}
+<!-- //customers Section -->
+
+{% endblock %}
