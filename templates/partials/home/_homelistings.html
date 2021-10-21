@@ -1,0 +1,58 @@
+{% load static %}
+
+<div class="w3l-servicesblock2" id="process">
+    <section id="grids5-block" class="py-5">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <h3 class="title-big text-center">Get listings from our clients</h3>
+            <div class="row mt-lg-5 mt-4">
+              <!---large view --->
+              <div class="col-lg-6 col-sm-12 w3-hide-small" style="height: 250px;  width:100%; margin-bottom: 30px;">
+                  <div class="grids5-info w3-display-container">
+                      <a href="#listing" class="blog-image d-block zoom"><img src="{% static 'assets/images/about2.jpg' %}" alt=""
+                              class="img-fluid radius-image " style="height: 250px; max-height:auto; width:100%"/>
+                          <div class="w3-display-middle" style="width:100%">
+                            {% include 'partials/search/_search.html' %}
+                          </div>
+
+                      </a>
+                  </div>
+                </div>
+
+                  <!---small view --->
+                  <div class="col-lg-6 col-sm-12 w3-hide-large w3-hide-medium" style="height: 300px;  width:100%; margin-bottom: 30px;">
+                      <div class="grids5-info w3-display-container">
+                          <a href="#listing" class="blog-image d-block zoom"><img src="{% static 'assets/images/about2.jpg' %}" alt=""
+                                  class="img-fluid radius-image " style="height: 300px; max-height:auto; width:100%"/>
+                              <div class="w3-display-middle" style="width:100%">
+                                {% include 'partials/search/_search.html' %}
+                              </div>
+
+                          </a>
+                      </div>
+                    </div>
+
+              {% for listing in listings %}
+                {% if listing.photo_main %}
+                  <div class="col-lg-3 col-sm-6" style="height: 250px; width:100%; margin-bottom: 30px;">
+                      <div class="grids5-info">
+                          <a href="#service" class="blog-image d-block zoom"><img src="{{listing.photo_main.url}}" alt=""
+                                  class="img-fluid radius-image" style="height: 250px; width:100%"/>
+                              <div class="image-overlay">
+                                  <h4>{{listing.title|capfirst|truncatechars:74}}</h4>
+
+                              </div>
+                              <div class="iconic-plus">
+                                  <span class="fa fa-plus"></span>
+                              </div>
+                          </a>
+                      </div>
+                  </div>
+                  {% endif %}
+                {% endfor %}
+                  <button class="btn btn-primary w3-padding w3-content w3-block">
+                  <a href="{% url 'listings' %}" class="w3-large w3-hover-text-white"><b>Explore more listings</b></a>
+                </button>
+            </div>
+        </div>
+    </section>
+</div>
