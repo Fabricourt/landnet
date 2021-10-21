@@ -4,38 +4,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="owl-three owl-carousel owl-theme logo-view">
-                    <div class="item">
-                        <img src="{% static  'assets/images/logo1.png' %}" alt="company-logo" class="img-fluid">
+                <div class="owl-three owl-carousel owl-theme ">
+                  {% for listing in listings %}
+                    {% if listing.photo_main %}
+                    <div class="item ">
+                      <a href="{% url 'listing' listing.id %}">
+                        <img src="{{listing.photo_main.url}}" alt="{{listing.title}}" class="w3-round-large " style="padding:35px; width: 250px; height:180px;">
+                      </a>
                     </div>
-                    <div class="item">
-                        <img src="{% static  'assets/images/logo2.png' %}" alt="company-logo" class="img-fluid">
+                    {% endif %}
+                  {% endfor %}
 
-                    </div>
-                    <div class="item">
-                        <img src="{% static  'assets/images/logo3.png' %}" alt="company-logo" class="img-fluid">
-
-                    </div>
-                    <div class="item">
-                        <img src="{% static  'assets/images/logo4.png' %}" alt="company-logo" class="img-fluid">
-
-                    </div>
-                    <div class="item">
-                        <img src="{% static  'assets/images/logo1.png' %}" alt="company-logo" class="img-fluid">
-
-                    </div>
-                    <div class="item">
-                        <img src="{% static  'assets/images/logo2.png' %}" alt="company-logo" class="img-fluid">
-
-                    </div>
-                    <div class="item">
-                        <img src="{% static  'assets/images/logo3.png' %}" alt="company-logo" class="img-fluid">
-
-                    </div>
-                    <div class="item">
-                        <img src="{% static  'assets/images/logo4.png' %}" alt="company-logo" class="img-fluid">
-
-                    </div>
                 </div>
             </div>
         </div>
