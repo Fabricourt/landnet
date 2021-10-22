@@ -29,7 +29,7 @@ class ListingAdmin(admin.ModelAdmin):
 
 
     fieldsets = [
-        ('Title', {'fields': ['title', 'slug',  'map_link', 'for_rs', 'list_date',], 'classes': ['pretty',],},),
+        ('Title', {'fields': ['title', 'slug', 'price', 'map_link', 'for_rs', 'list_date',], 'classes': ['pretty',],},),
         ('Property Location', {'fields': ['neighbourhood', 'town', 'county',], 'classes': ['pretty',],},),
         ('Select property', {'fields': ['plot', 'house', 'rental'], 'classes': ['pretty',],},),
         ('Plot here', {'fields': ['plot_type', 'plot_size', 'large_plot_size', 'soil_type', 'document_type',], 'classes': ['collapse',],},),
