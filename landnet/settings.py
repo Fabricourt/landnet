@@ -29,7 +29,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-
+    'admin_interface',
+    'colorfield',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'crispy_forms',
     'ckeditor_uploader',
+
 
 ]
 
@@ -274,3 +276,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 #CRISPY_TEMPLATE_PACK = 'uni_form'
 
 GOOGLE_MAPS_API_KEY = 'AIzaSyDg-rwJKGb1as5C-e3fljLAWhYJSRAHu-w'
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+SILENCED_SYSTEM_CHECKS = ['security.W019']
