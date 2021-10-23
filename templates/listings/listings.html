@@ -1,20 +1,39 @@
 {% extends 'base.html' %} {% load static %} {% load humanize %} {% block title %} Listings {% endblock %} {% block content %}
 
-{% include 'pages/underconstruction.html' %}
-<section class="w3-hide">
+<section>
+    <div class="w3-win8-crimson" style="width: 100%;">
+        <br><br>
 
+        <!---large view --->
+        <div class="c w3-hide-small" style="height: 250px;  width:100%; margin-bottom: 30px;">
+            <div class="grids5-info w3-display-container">
+                <a href="#listing" class="blog-image d-block zoom"><img src="{% static 'assets/images/about2.jpg' %}" alt="" class="img-fluid radius-image " style="height: 250px; max-height:auto; width:100%" />
+                    <div class="w3-display-middle" style="width:100%">
+                        {% include 'partials/search/_search.html' %}
+                    </div>
 
-<!-- Hero Section Begin -->
-{% include 'partials/listings/_heroimageheader.html' %}
-<!-- Hero Section End -->
+                </a>
+            </div>
+        </div>
 
-<!-- Filter Search Section Begin -->
-{% include 'partials/search/_search.html' %}
-<!-- Filter Search Section End -->
+        <!---small view --->
+        <div class=" w3-hide-large w3-hide-medium" style="height: 300px;  width:100%; margin-bottom: 30px;">
+            <div class="grids5-info w3-display-container">
+                <a href="#listing" class="blog-image d-block zoom"><img src="{% static 'assets/images/about2.jpg' %}" alt="" class="img-fluid radius-image " style="height: 300px; max-height:auto; width:100%" />
+                    <div class="w3-display-middle" style="width:100%">
+                        {% include 'partials/search/_search.html' %}
+                    </div>
 
-<!-- listing card Section Begin -->
-{% include 'partials/listings/_listingcard.html' %}
-<!-- listing card Section End -->
+                </a>
+            </div>
+        </div>
+
+        <br>
+    </div>
+
+    <!-- listing tabbar -->
+    {% include 'partials/home/_tabbar.html' %}
+    <!-- //listingspage  section -->
 
 </section>
 
