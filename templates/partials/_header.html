@@ -3,6 +3,7 @@
 <header id="site-header" class="fixed-top">
     <section class="w3l-header-4">
         <div class="container">
+
             <nav class="navbar navbar-expand-lg navbar-light">
                 <h1>
                     <a class="navbar-brand" href="{% url 'index' %}">
@@ -37,37 +38,105 @@
                             </div>
                         </li>
 
-                        <li class="nav-item active">
+                        <li
+                            {% if '/' == request.path %}
+                              class="nav-item active mr-3"
+                            {% else %}
+                              class="nav-item mr-3"
+                            {% endif %}
+                        >
                             <a class="nav-link" href="{% url 'index' %}">Home </a>
                         </li>
 
-                        <li class="nav-item @@about__active">
+                        <li
+                        {% if 'listings' in request.path %}
+                          class="nav-item active mr-3"
+                        {% else %}
+                          class="nav-item mr-3"
+                        {% endif %}
+                        >
                             <a class="nav-link" href="{% url 'listings' %}">Listings</a>
                         </li>
 
-                        <li class="nav-item @@about__active">
+                        <li
+                        {% if 'about' in request.path %}
+                          class="nav-item active mr-3"
+                        {% else %}
+                          class="nav-item mr-3"
+                        {% endif %}
+                        >
                             <a class="nav-link" href="{% url 'about' %}">About</a>
                         </li>
 
 
-                        <li class="nav-item @@services__active">
-                            <a class="nav-link" href="{% url 'services' %}">Our Services</a>
+                        <li
+                        {% if 'services' in request.path %}
+                          class="nav-item active mr-3"
+                        {% else %}
+                          class="nav-item mr-3"
+                        {% endif %}
+                        >
+                            <a class="nav-link" href="{% url 'services' %}">Services</a>
                         </li>
 
-                        <li class="nav-item @@contact__active">
+                        <li
+                        {% if 'contactus' in request.path %}
+                          class="nav-item active mr-3"
+                        {% else %}
+                          class="nav-item mr-3"
+                        {% endif %}
+                        >
                             <a class="nav-link" href="{% url 'contactus' %}">Contact</a>
                         </li>
 
 
 
                     </ul>
-                    <ul class="navbar-nav search-right mt-lg-0 mt-2 ">
-                        <li class="nav-item mr-2 w3-margin-bottom" title="Search">
+                    <ul class="navbar-nav search-right mt-lg-0 mt-2 w3-margin-bottom">
+                        {% if user.is_authenticated %}
+                        <li
+                        {% if 'profile' in request.path %}
+                          class="nav-item active mr-3"
+                        {% else %}
+                          class="nav-item mr-3"
+                        {% endif %}
+                        >
+                            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="w3-text-blue nav-link" href="javascript:{document.getElementById('logout').submit()}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                            <form action="{% url 'logout' %}" method="POST" id="logout">
+                                {% csrf_token %}
+                                <input type="hidden">
+                            </form>
+                        </li>
+                        {% else %}
+                        <li
+                        {% if 'register' in request.path %}
+                          class="nav-item active mr-3"
+                        {% else %}
+                          class="nav-item mr-3"
+                        {% endif %}
+                        >
+                            <a class="nav-link" href="{% url 'register' %}"><i class="fas fa-user-plus"></i>Register</a>
+                        </li>
+                        <li
+                        {% if 'login' in request.path %}
+                          class="nav-item active mr-3"
+                        {% else %}
+                          class="nav-item mr-3"
+                        {% endif %}
+                        >
+                            <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>Login</a>
+                        </li>
+                        {% endif %}
+
+                        <li class="nav-item mr-2 w3-hide w3-margin-bottom" title="Search">
                             <a href="#search" class="btn search-search">
                                 <span class="fa fa-search w3-large" aria-hidden="true"></span></a>
 
                         </li>
-                        <li class="nav-item w3-margin-bottom"><a href="{% url 'contactus' %}" class="btn  btn-primary  d-none d-lg-block  mr-3">Request Quote</a>
+                        <li class="nav-item  w3-hide w3-margin-bottom"><a href="{% url 'contactus' %}" class="btn  btn-primary  d-none d-lg-block  mr-3">Request Quote</a>
                             <br>
                         </li>
 

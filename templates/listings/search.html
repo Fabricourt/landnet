@@ -1,18 +1,81 @@
 {% extends 'base.html' %} {% load static %} {% load humanize %} {% block title %} Listings {% endblock %} {% block content %}
 
-<!-- Hero Section Begin -->
-{% include 'partials/listings/_heroimageheader.html' %}
-<!-- Hero Section End -->
+<section>
+    <div class="w3-win8-crimson">
+        <br>
+        <center>
+          <h2 class="w3-card-4 w3-text-red w3-round w3-white w3-button w3-xxlarge">SEARCH</h2>
+        </center>
+        <br>
 
-<!-- Filter Search Section Begin -->
-{% include 'partials/search/_search.html' %}
-<!-- Filter Search Section End -->
+        <!---large view --->
+        <div class="c w3-hide-small" style="height: 350px;  width:100%; margin-bottom: 30px;">
+            <div class="grids5-info w3-display-container">
+                <a href="#listing" class="blog-image d-block zoom"><img src="{% static 'assets/images/banner4.jpg' %}" alt="" class="img-fluid" style="height: 350px; max-height:auto; width:100%" />
+                    <div class="w3-display-middle" style="width:100%">
+                        {% include 'partials/search/_search.html' %}
+                    </div>
 
-<!-- listing card Section Begin -->
-{% include 'partials/listings/_listingcard.html' %}
-<!-- listing card Section End -->
+                </a>
+            </div>
+        </div>
+
+        <!---small view --->
+        <div class=" w3-hide-large w3-hide-medium" style="height: 300px;  width:100%; margin-bottom: 30px;">
+            <div class="grids5-info w3-display-container">
+                <a href="#listing" class="blog-image d-block zoom"><img src="{% static 'assets/images/banner4.jpg' %}" alt="" class="img-fluid" style="height: 300px; max-height:auto; width:100%" />
+                    <div class="w3-display-middle" style="width:100%">
+                        {% include 'partials/search/_search.html' %}
+                    </div>
+
+                </a>
+            </div>
+        </div>
+
+        <br>
+    </div>
+
+    <!-- listing tabbar -->
 
 
+    <section class="w3l-products w3-content w3l-faq-block py-5" id="features">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <div class="row ">
+                <div class="col-lg-12 mx-auto">
+
+                    <!--Horizontal Tab-->
+                    <div id="parentHorizontalTab">
+
+                        <div class="resp-tabs-container hor_1">
+                            <div class="products-content">
+                                <div class="row mt-lg-5 mt-4">
+                                    {% for listing in listings %} {% if listing.photo_main %}
+                                    <div class="col-lg-4 col-sm-6" style="height: 250px; width:100%; margin-bottom: 30px;">
+                                        <div class="grids5-info">
+                                            <a href="" class="blog-image d-block zoom"><img src="{{listing.photo_main.url}}" alt="" class="img-fluid radius-image" style="height: 250px; width:100%" />
+                                                <div class="image-overlay">
+                                                    <h4>{{listing.title|capfirst|truncatechars:74}}</h4>
+
+                                                </div>
+                                                <div class="iconic-plus">
+                                                    <span class="fa fa-plus"></span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {% endif %} {% endfor %}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </section>
+    <!-- //listingspage  section -->
+
+</section>
 
 
 {% endblock %}
