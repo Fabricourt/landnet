@@ -23,8 +23,6 @@ class Realtor(models.Model):
   def __str__(self):
     return self.name
 
-@property
-def image_preview(self):
-    if self.photo_main:
-        return mark_safe('<img src="{}" width="80" height="80" />'.format(self.photo_main.url))
-    return ""
+  def image_tag(self):
+      return mark_safe('<img src="%s" width="65px" height="65px" />'%(self.photo.url))
+      image_tag.short_description = 'Image'

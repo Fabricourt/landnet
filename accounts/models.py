@@ -3,6 +3,8 @@ from django.db import models
 # Create your models here.
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.safestring import mark_safe
+from django.utils.html import mark_safe
 from PIL import Image
 
 
@@ -15,6 +17,10 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
+    def image_tag(self):
+      return mark_safe('<img src="%s" width="65px" height="65px" />'%(self.image.url))
+      image_tag.short_description = 'Image'
+
 def save(self, *args, **kwargs):
     super(Profile, self).save(*args, **kwargs)
 
@@ -24,3 +30,5 @@ def save(self, *args, **kwargs):
         output_size = (300,300)
         img.thumbnail(output_size)
         img.save(self.image.path)
+
+  

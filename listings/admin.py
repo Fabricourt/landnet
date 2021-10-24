@@ -9,7 +9,7 @@ admin.site.register(Feature)
 
 @admin.register(Listing)
 class ListingAdmin(admin.ModelAdmin):
-    list_display = ( 'title', 'for_rs',  'plot', 'house', 'rental', 'mvp', 'is_published',)
+    list_display = ( 'image_tag', 'title', 'for_rs',  'plot', 'house', 'rental', 'mvp', 'is_published',)
     list_display_links = ('title',)
     list_filter = ('list_date', 'realtor', 'plot', 'house', 'rental', 'mvp',  'neighbourhood', 'town', 'county', 'is_published', 'list_date' )
     list_editable = ( 'for_rs', 'plot', 'house', 'rental', 'mvp', 'is_published',)
@@ -19,14 +19,9 @@ class ListingAdmin(admin.ModelAdmin):
     date_hierarchy = 'list_date'
     ordering = ('is_published', '-list_date')
     list_per_page = 10
-    readonly_fields = ('image_preview',)
+    
 
-    def image_preview(self, obj):
-        return obj.image_preview
-
-    image_preview.short_description = 'Image Preview'
-    image_preview.allow_tags = True
-
+  
 
     fieldsets = [
         ('Title', {'fields': ['realtor', 'title', 'slug', 'price', 'map_link', 'for_rs', 'list_date', ], 'classes': ['pretty',],},),

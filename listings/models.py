@@ -7,11 +7,13 @@ from django.urls import reverse
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 from django.utils.safestring import mark_safe
+from django.utils.html import mark_safe
 from PIL import Image
 from django.template.loader import render_to_string
 from ckeditor.fields import RichTextField
 #from hitcount.models import HitCountMixin, HitCount
 from django.contrib.contenttypes.fields import GenericRelation
+from django.utils.html import mark_safe
 
 
 
@@ -144,23 +146,21 @@ class Listing(models.Model):
   map_link = models.URLField(max_length=200, null=True, blank=True)
 
 
-@property
-def image_preview(self):
-    if self.photo_main:
-        return mark_safe('<img src="{}" width="80" height="80" />'.format(self.photo_main.url))
-    return ""
+  def image_tag(self):
+      return mark_safe('<img src="%s" width="65px" height="65px" />'%(self.photo_main.url))
+      image_tag.short_description = 'Image'
 
 
-def save(self, *args, **kwargs):
-    if not self.slug:
-        self.slug = slugify(self.title)
-    return super(Listing, self).save(*args, **kwargs)
+  def save(self, *args, **kwargs):
+      if not self.slug:
+          self.slug = slugify(self.title)
+      return super(Listing, self).save(*args, **kwargs)
 
-def __str__(self):
-    return self.title
+  def __str__(self):
+      return self.title
 
-def get_absolute_url(self):
-    return reverse('listing',  args=[str(self.id)])
+  def get_absolute_url(self):
+      return reverse('listing',  args=[str(self.id)])
 
 
 

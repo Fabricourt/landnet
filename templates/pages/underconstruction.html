@@ -1,35 +1,42 @@
 {% load static %}
 
 <style>
-body,h1 {font-family: "Raleway", sans-serif}
-body, html {height: 100%}
-.bgimg {
-  background-image: url('{% static "assets/images/underconstruction.png" %}');
-  min-height: 100%;
-  background-position: center;
-  background-size: cover;
-}
+    body,
+    h1 {
+        font-family: "Raleway", sans-serif
+    }
+    
+    body,
+    html {
+        height: 100%
+    }
+    
+    .bgimg {
+        background-image: url('{% static "assets/images/underconstruction.png" %}');
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
 </style>
 
 
 <div class="bgimg w3-display-container w3-animate-opacity ">
 
-  <div class="w3-display-middle w3-text-orange w3-center w3-opacity-min w3-white">
-    <div class="w3-padding">
-    <span class="w3-xxlarge">
+    <div class="w3-display-middle w3-text-orange w3-center w3-opacity-min w3-white">
+        <div class="w3-padding">
+            <span class="w3-xxlarge">
           {% if 'about' in request.path %}
               About section
           {% elif 'services' in request.path %}
               Services section
           {% endif %}
     </span>
-    <h1 class="w3-jumbo w3-animate-top w3-center ">
+            <h1 class="w3-animate-top w3-center ">
 
-
-      UNDERCONSTRUCTION</h1>
-    <hr class="w3-border-orange" style="margin:auto;width:40%">
-    <p class="w3-large w3-center w3-text-orange"><b>14 days left</b></p>
-  </div>
-  </div>
+                UNDERCONSTRUCTION</h1>
+            <hr class="w3-border-orange" style="margin:auto;width:40%">
+            <p class="w3-large w3-center w3-text-orange"><b>14 days left</b></p>
+        </div>
+    </div>
 
 </div>
