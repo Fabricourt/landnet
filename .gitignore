@@ -4,7 +4,11 @@
 __pycache__/
 local_settings.py
 db.sqlite3
-/media
+/media/advert_pics
+/media/Pages_photos
+/media/photos
+/profile_pics
+
 venv
 realT
 .vscode
