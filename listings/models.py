@@ -95,7 +95,7 @@ PLOT_SIZE_CHOICES = (
 
 
 class Listing(models.Model):
-  realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
+  realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING, blank=True, null=True)
   title = models.CharField(max_length=200)
   slug = models.SlugField(blank=True, null=True)
   neighbourhood = models.CharField(max_length=200)
