@@ -4,6 +4,7 @@ from django.core.mail import send_mail
 from .models import Contact
 from .forms import *
 from listings.models import Listing
+from django.template import RequestContext
 
 def contact(request):
   if request.method == 'POST':

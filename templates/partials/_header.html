@@ -88,6 +88,17 @@
                         >
                             <a class="nav-link" href="{% url 'contactus' %}">Contact</a>
                         </li>
+                        {% if user.is_staff %}
+                        <li
+                        {% if 'https://landnet.katata.co.ke/admin/login/?next=/admin/' in request.path %}
+                          class="nav-item active mr-3"
+                        {% else %}
+                          class="nav-item mr-3"
+                        {% endif %}
+                        >
+                            <a class="nav-link" href="https://landnet.katata.co.ke/admin/login/?next=/admin/">Admin</a>
+                        </li>
+                        {% endif %}
 
 
 
