@@ -3,8 +3,8 @@ from django.contrib import admin
 from .models import *
 
 class ContactAdmin(admin.ModelAdmin):
-  list_display = ('id', 'name', 'listing', 'phone', 'pick_date', 'contact_date')
-  list_display_links = ('id', 'name', 'listing',)
+  list_display = ( 'name', 'listing', 'message', 'phone', 'pick_date', 'contact_date', )
+  list_display_links = ( 'name', 'listing',)
   list_filter = ('pick_date', 'contact_date',)
   search_fields = ('name', 'phone', 'listing')
   list_per_page = 25

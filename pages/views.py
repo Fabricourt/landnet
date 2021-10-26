@@ -8,7 +8,7 @@ from realtors.models import Realtor
 
 def index(request):
     listings = Listing.objects.order_by('-list_date').filter(is_published=True)[:24]
-    footers = Listing.objects.order_by('?').filter(is_published=True)[:2]
+    footers = Listing.objects.order_by('?').filter(is_published=True)[:22]
 
     context = {
         'footers': footers,

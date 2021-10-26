@@ -1,0 +1,26 @@
+{% load static %}
+<section class="w3l-customers py-md-5 py-4" id="clients">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="owl-three owl-carousel owl-theme ">
+                  {% for listing in footers %}
+                    {% if listing.photo_main %}
+                      <div class="item">
+                        <div class="w3-display-container" >
+                          <a href="{% url 'listing' listing.id %}">
+                            <img src="{{listing.photo_main.url}}" alt="{{listing.title}}" class="w3-round-large " style="padding:35px; width: 280px; height:260px;">
+                            <div class="w3-display-middle w3-opacity-min w3-win8-crimson w3-tiny w3-container">
+                              {{listing.title|capfirst|truncatechars:74}}
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

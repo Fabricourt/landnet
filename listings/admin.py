@@ -15,11 +15,9 @@ class ListingAdmin(admin.ModelAdmin):
     list_editable = ( 'for_rs', 'plot', 'house', 'rental', 'mvp', 'is_published',)
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
-    #raw_id_fields = ('realtor',)
     date_hierarchy = 'list_date'
     ordering = ('is_published', '-list_date')
     list_per_page = 10
-
 
 
 

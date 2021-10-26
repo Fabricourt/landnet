@@ -1,36 +1,73 @@
 {% extends 'base.html' %} {% load static %} {% load humanize %} {% block title %} {{listing.title|capfirst}} {% endblock %} {% block content %}
-<!-- Hero Section Begin -->
-<section class="hero-section set-bg single-property-r" data-setbg="{% static  'img/bg.jpg' %}">
-    <div class="container hero-text text-white">
-        <h2>Homes Property</h2>
-        <div class="w3-hide">
-          <button class="btn w3-purple"><a href="user-listings">user-listings</a></button>
-          <button class="btn w3-blue"><a href="create-new-listing">Add</a></button>
-          <button class="btn w3-green"><a href="listing-update">Update</a></button>
-          <button class="btn w3-red"><a href="listing-delete">Delete</a></button>
-        </div>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
+.mySlides {display:none}
+.w3-tag, .fa {cursor:pointer}
+.w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
+</style>
 
-        <!-- Alerts -->
-        {% include 'partials/_alerts.html' %}
-        <!--Alerts end-->
-    </div>
-</section>
-<!-- Hero Section End -->
+<!-- Content -->
+<div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
 
-<!-- Filter Search Section Begin -->
-{% include 'partials/search/_search.html' %}
-<!-- Filter Search Section End -->
+  <div class="w3-panel">
+    <h1><b>{{listing.title}}</b></h1>
+    <p class="w3-right">{{listing.list_date}}</p>
+    <!-- Alerts -->
+    {% include 'partials/_alerts.html' %}
+  <!--Alerts end-->
+  </div>
 
-<!-- Alerts -->
-{% include 'partials/_alerts.html' %}
-<!--Alerts end-->
+  <!--slideshow-->
+  {% include 'partials/listings/listing/_slideshow.html' %}
 
-<!-- Single Property Section Begin -->
-{% include 'partials/listings/listing/_singleproperty.html' %}
-<!-- Single Property End -->
+  <!--grid-->
+  {% include 'partials/listings/listing/_grid.html' %}
 
-<!-- Single Property Deatails Section Begin -->
-{% include 'partials/listings/listing/_singlepropertydetail.html' %}
-<!-- Single Property Deatails Section End -->
+  <!--description-->
+  {% include 'partials/listings/listing/_description.html' %}
+
+
+  <!--inquiry-->
+  {% include 'partials/listings/listing/_inquiry.html' %}
+</div>
+
+  <!--footers listings-->
+  {% include 'partials/listings/listing/_footerlistings.html' %}
+
+
+  <script>
+  // Slideshow
+  var slideIndex = 1;
+  showDivs(slideIndex);
+
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+
+  function currentDiv(n) {
+    showDivs(slideIndex = n);
+  }
+
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demodots");
+    if (n > x.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = x.length} ;
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" w3-white", "");
+    }
+    x[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " w3-white";
+  }
+  </script>
+
+
 
 {% endblock %}

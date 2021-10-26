@@ -24,7 +24,7 @@ from.models import Listing
 
 def index(request):
   listings = Listing.objects.order_by('-list_date').filter(is_published=True)
-  footers = Listing.objects.order_by('?').filter(is_published=True)[:2]
+  footers = Listing.objects.order_by('?').filter(is_published=True)[:22]
 
 
   paginator = Paginator(listings, 6)

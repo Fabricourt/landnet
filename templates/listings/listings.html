@@ -56,7 +56,7 @@
                                     {% for listing in listings %} {% if listing.photo_main %}
                                     <div class="col-lg-4 col-sm-6" style="height: 250px; width:100%; margin-bottom: 30px;">
                                         <div class="grids5-info">
-                                            <a href="" class="blog-image d-block zoom"><img src="{{listing.photo_main.url}}" alt="" class="img-fluid radius-image" style="height: 250px; width:100%" />
+                                            <a href="{% url 'listing' listing.id %}" class="blog-image d-block zoom"><img src="{{listing.photo_main.url}}" alt="" class="img-fluid radius-image" style="height: 250px; width:100%" />
                                                 <div class="image-overlay">
                                                     <h4>{{listing.title|capfirst|truncatechars:74}}</h4>
 

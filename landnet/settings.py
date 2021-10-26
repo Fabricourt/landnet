@@ -57,7 +57,7 @@ INSTALLED_APPS = [
 ]
 
 LOGIN_URL = '/login/'
-#LOGIN_URL_REDIRECT = 'index'
+LOGIN_URL_REDIRECT = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 LOGOUT_URL = '/logout/'
 
