@@ -19,7 +19,7 @@ def register(request):
         form = UserRegisterForm()
     context = {
         'form': form,
-        'footers': footers
+        'footers': footers,
         }
 
     return render(request, 'accounts/register.html', context)
