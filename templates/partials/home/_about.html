@@ -1,22 +1,27 @@
 {% load static %}
 
+{% if home_about %}
+{% for page in home_about %}
+
 <section class="w3l-aboutblock1" id="about">
     <div class="midd-w3 py-5">
         <div class="container py-lg-5 py-md-3 py-2">
             <div class="row">
                 <div class="col-lg-6 mb-lg-0 mb-md-5 mb-5 align-self">
-                    <h3 class="title-big mx-0">Best Survey Solution Service From Experienced Engineer. </h3>
-                    <p class="mt-md-4 mt-3">Landnet is a professional survey company that manages, organization, presentation, collection and delivery of spatial information mainly in conveyancing and title survey. </p>
-                    <p class="mt-3">landnet is specialised in survey documentation for land registration and title deed issuance in line with the Land registration Act and land Act.</p>
+                    <h3 class="title-big mx-0">{{page.title|capfirst}} </h3>
+                    <p class="mt-md-4 mt-3"> {{page.description|capfirst}}  </p>
+
                     <a href="#features" class="btn btn-primary btn-style mt-md-5 mt-4 mr-2">FAQ</a>
                     <a href="{% url 'about' %}" class="btn btn-outline-primary w3-hide-small btn-style mt-md-5 mt-4"> View all</a>
                 </div>
                 <div class="col-lg-6">
                     <div class="position-relative">
-                        <img src="{% static  'assets/images/about.jpg' %}" alt="" class="radius-image img-fluid">
+                        <img src="{{page.photo.url}}" alt="" class="radius-image img-fluid">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+{% endfor %}
+{% endif %}
