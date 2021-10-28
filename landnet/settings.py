@@ -213,6 +213,7 @@ CKEDITOR_CONFIGS = {
         #'skin': 'bootstrapck',
         #'skin': 'kama',
         #'skin': 'moono-dark',
+        #'skin': 'light',
         #'skin': 'minimalist',
         #'skin': 'icy_orange',
         #'skin': 'flat',
