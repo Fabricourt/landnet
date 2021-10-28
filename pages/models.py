@@ -16,16 +16,15 @@ from datetime import datetime
 
 CSSORDER = (
     ('active', 'active'),
-    ('True','True'),
-
+    ('true','true'),
   )
 
 
 class Page(models.Model):
     title = models.CharField(max_length=500, blank=False, null=True, unique=True, help_text='particular name of the area as known to the locals')
     slug = models.SlugField(max_length=250, unique_for_date='created')
-    description = models.TextField(blank=True, null=True)
-    photo =  models.ImageField(upload_to='Pages_photos/%Y/%m/%d/', default="landscape.jpg", blank=True,null=True, help_text="your image must be jpg format to save") 
+    description = RichTextField(blank=True, null=True)
+    photo =  models.ImageField(upload_to='Pages_photos/%Y/%m/%d/', default="landscape.jpg", blank=True,null=True, help_text="your image must be jpg format to save")
     youtube = models.TextField(blank=True, null=True)
     cssorder = models.CharField(max_length=100,
                                 choices=CSSORDER, blank=True, null=True

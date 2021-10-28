@@ -193,7 +193,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 
-CKEDITOR_BASEPATH = STATIC_ROOT+"/ckeditor/ckeditor"
+CKEDITOR_BASEPATH = STATIC_ROOT+"/assets/ckeditor/ckeditor"
 
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
@@ -202,12 +202,21 @@ CKEDITOR_IMAGE_BACKEND = "pillow"
 
 
 
+
 CKEDITOR_CONFIGS = {
     'default': {
         'height': '50vh',
         'width': '100%',
-        'skin': 'moono',
-        # 'skin': 'office2013',
+        #'skin': 'moono-lisa',
+        'skin': 'office2013',
+        #'skin': 'moono',
+        #'skin': 'bootstrapck',
+        #'skin': 'kama',
+        #'skin': 'moono-dark',
+        #'skin': 'minimalist',
+        #'skin': 'icy_orange',
+        #'skin': 'flat',
+        #'skin': 'atlas',
 
         'toolbar_Basic': [
             ['Source', '-', 'Bold', 'Italic']
