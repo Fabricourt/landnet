@@ -111,10 +111,11 @@
     </div>
   </div>
   <!-- //middle -->
+  {% if realtors %}
 <div class="team-area py-5" id="people">
     <div class="container py-lg-5 py-md-4 py-2">
         <span class="title-small text-center"> Our People</span>
-        <h3 class="title-big text-center"> Explore Solutions</h3>
+        <h3 class="title-big text-center"> Explore Our Team</h3>
         <div class="row mt-lg-5 mt-4">
           {% for realtor in realtors %}
             <div class="col-lg-3 col-sm-6 col-xs-12">
@@ -146,6 +147,7 @@
     </div>
 </div>
 </section>
+{% endif %}
 
 
 {% endblock %}
