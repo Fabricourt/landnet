@@ -96,7 +96,7 @@
                           class="nav-item mr-3"
                         {% endif %}
                         >
-                            <a class="nav-link" href="https://landnet.katata.co.ke/admin/login/?next=/admin/">Admin</a>
+                            <a class="nav-link" target="blank_true" href="https://landnet.katata.co.ke/admin/login/?next=/admin/">Admin</a>
                         </li>
                         {% endif %}
 
@@ -129,7 +129,7 @@
                           class="nav-item mr-3"
                         {% endif %}
                         >
-                            <a class="nav-link" href="{% url 'register' %}"><i class="fas fa-user-plus"></i>Register</a>
+                            <a class="nav-link" href="{% url 'register' %}"><i class="fas w3-hide fa-user-plus"></i>Register</a>
                         </li>
                         <li
                         {% if 'login' in request.path %}
