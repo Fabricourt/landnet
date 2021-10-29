@@ -40,6 +40,7 @@ class Page(models.Model):
     policy = models.BooleanField(default=False)
     privacy = models.BooleanField(default=False)
     cookies = models.BooleanField(default=False)
+    core = models.BooleanField(default=False)
     published = models.BooleanField(default=True)
 
     #hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk',related_query_name='hit_count_generic_relation')

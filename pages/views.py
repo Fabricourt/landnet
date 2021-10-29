@@ -12,12 +12,12 @@ def index(request):
     footers = Listing.objects.order_by('?').filter(is_published=True)[:22]
     home_about = Page.objects.order_by('-updated').filter(published=True).filter(home=True).filter(about=True)[:1]
     service = Page.objects.order_by('updated').filter(published=True).filter(service=True)[:3]
-    mvp_service = Page.objects.order_by('updated').filter(published=True).filter(mvp=True).filter(service=True)[:3]
+    home_service = Page.objects.order_by('updated').filter(published=True).filter(home=True).filter(service=True)[:3]
     mvp_faq = Page.objects.order_by('created').filter(published=True).filter(mvp=True).filter(faq=True)[:5]
 
     context = {
         'home_about': home_about,
-        'mvp_service': mvp_service,
+        'home_service': home_service,
         'service': service,
         'mvp_faq':mvp_faq,
         'footers': footers,
@@ -58,13 +58,23 @@ def about(request):
 
 def services(request):
     # Get all realtors
+    service_mvp = Page.objects.order_by('updated').filter(published=True).filter(mvp=True).filter(service=True)[:1]
+    services = Page.objects.order_by('?').filter(published=True).filter(service=True)[:8]
+    servicex = Page.objects.order_by('created').filter(published=True).filter(service=True).filter(core=True)[:1]
+    about_service = Page.objects.order_by('updated').filter(published=True).filter(about=True).filter(service=True)[:4]
     realtors = Realtor.objects.order_by('-hire_date')
     footers = Listing.objects.order_by('?').filter(is_published=True)[:2]
+    home_service = Page.objects.order_by('updated').filter(published=True).filter(home=True).filter(service=True)[:3]
 
     # Get MVP
     mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
 
     context = {
+        'service_mvp': service_mvp,
+        'services': services,
+        'servicex': servicex,
+        'about_service': about_service,
+        'home_service': home_service,
         'footers': footers,
         'realtors': realtors,
         'mvp_realtors': mvp_realtors

@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-lg-6 mb-lg-0 mb-md-5 mb-5 align-self">
                     <h3 class="title-big mx-0">{{page.title|capfirst}} </h3>
-                    <p class="mt-md-4 mt-3"> {{page.description|capfirst}}  </p>
+                    <p class="mt-md-4 mt-3"> {{page.description|safe|capfirst}}  </p>
 
                     <a href="#features" class="btn btn-primary btn-style mt-md-5 mt-4 mr-2">FAQ</a>
                     <a href="{% url 'about' %}" class="btn btn-outline-primary w3-hide-small btn-style mt-md-5 mt-4"> View all</a>
