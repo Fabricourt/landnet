@@ -27,7 +27,7 @@ class Page(models.Model):
     photo =  models.ImageField(upload_to='Pages_photos/%Y/%m/%d/', default="landscape.jpg", blank=True,null=True, help_text="your image must be jpg format to save")
     youtube = models.TextField(blank=True, null=True)
     cssorder = models.CharField(max_length=100,
-                                choices=CSSORDER, blank=True, null=True
+                                choices=CSSORDER, blank=True, null=True, help_text="for faq use true and for about use active"
                                )
     #video = models.FileField(upload_to='videos/', null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
