@@ -1,10 +1,10 @@
 <!-- Description -->
 <div class="row mb-5">
-<div class="col-md-9">
+<div class="col-md-8">
   {{ listing.description|safe }}
 </div>
 
-<div class="col-md-3">
+<div class="col-md-4">
 <div class="card mb-3">
   <img class="card-img-top" src="{{ listing.realtor.photo.url }}" alt="">
   <div class="card-body">
@@ -13,5 +13,29 @@
   </div>
 </div>
 <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
+<!-- listings -->
+{% if listings %}
+<div class="w3-white w3-content w3-padding-48">
+  <div class="w3-container w3-padding w3-light-grey">
+    <h2>More Listings</h2>
+  </div>
+  <ul class="w3-ul w3-hoverable w3-white">
+
+    {% for listing in listings %}
+    {% if listing.photo_main %}
+    <li class="w3-padding-16">
+      <a href="{% url 'listing' listing.id %}">
+        <img src="{{listing.photo_main.url}}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">House for sale</span>
+        <br>
+        <span>{{listing.title|capfirst}}</span>
+      </a>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
+{% endif %}
 </div>
 </div>

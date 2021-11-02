@@ -71,6 +71,7 @@
           {% for listing in plots %}
           {% if listing.photo_main %}
           <li class="w3-padding-16">
+            <a href="{% url 'listing' listing.id %}">
             <img src="{{listing.photo_main.url}}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
             <span class="w3-large">Plot for sale</span>
             <br>
@@ -94,10 +95,12 @@
           {% for listing in houses %}
           {% if listing.photo_main %}
           <li class="w3-padding-16">
-            <img src="{{listing.photo_main.url}}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-            <span class="w3-large">House for sale</span>
-            <br>
-            <span>{{listing.title|capfirst|truncatewords:4}}</span>
+            <a href="{% url 'listing' listing.id %}">
+              <img src="{{listing.photo_main.url}}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+              <span class="w3-large">House for sale</span>
+              <br>
+              <span>{{listing.title|capfirst|truncatewords:4}}</span>
+            </a>
           </li>
           {% endif %}
           {% endfor %}
@@ -117,10 +120,12 @@
           {% for listing  in rentals %}
           {% if listing.photo_main %}
           <li class="w3-padding-16">
+            <a href="{% url 'listing' listing.id %}">
             <img src="{{listing.photo_main.url}}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
             <span class="w3-large">Find rental</span>
             <br>
             <span>{{listing.title|capfirst|truncatewords:4}}</span>
+            </a>
           </li>
           {% endif %}
           {% endfor %}
