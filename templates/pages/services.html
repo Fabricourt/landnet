@@ -27,16 +27,14 @@
                   {% if page.photo %}
                     <div class="col-lg-4 col-md-6">
                         <div class="grids5-info">
-                            <a href="#service" class="d-block zoom"><img src="{{page.photo.url}}" alt="" class="img-fluid service-image" /></a>
+                            <a href="{% url 'page' page.id %}" class="d-block zoom"><img src="{{page.photo.url}}" alt="" class="img-fluid service-image" /></a>
                             <div class="blog-info">
-                                <h4><a href="#service">{{page.title|capfirst}}</a></h4>
+                                <h4><a href="{% url 'page' page.id %}">{{page.title|capfirst}}</a></h4>
                             </div>
                         </div>
                     </div>
                   {% endif %}
                   {% endfor %}
-
-
                 </div>
             </div>
         </section>
@@ -54,7 +52,7 @@
                         <h3 class="title-big mx-0">{{page.title|capfirst}} </h3>
                         {{ page.description|capfirst|safe|truncatewords:100}}
                         <a href="{% url 'contactus' %}" class="btn btn-primary btn-style mt-md-5 mt-4 mr-2">Work with us</a>
-                        <a href="#Learnmore" class="btn btn-outline-primary btn-style mt-md-5 mt-4">Learn More</a>
+                        <a href="{% url 'page' page.id %}" class="btn btn-outline-primary btn-style mt-md-5 mt-4">Learn More</a>
                     </div>
                     {% endfor %}
                     {% endif %}
@@ -67,7 +65,7 @@
                                     <div class="feature-images">
                                         <span class="fa fa-circle" aria-hidden="true"></span>
                                     </div>
-                                    <h5><a href="#about">{{page.title|capfirst}}</a></h5>
+                                    <h5><a href="{% url 'page' page.id %}">{{page.title|capfirst}}</a></h5>
                                 </div>
                             </div>
                           {% endfor %}
@@ -90,7 +88,9 @@
                     <div class="area-box" style="height:280px">
                         <span class="fa fa-star w3-large w3-card w3-text-red  w3-circle w3-border w3-border-red   "></span>
 
-                        <h4><a href="#feature" class="title-head">{{ page.title|capfirst }}</a></h4>
+                        <h4><a href="
+                          {% url 'page' page.id %}
+                          " class="title-head">{{ page.title|capfirst }}</a></h4>
                         <p>{{ page.description|capfirst|safe|truncatewords:8 }}</p>
 
                     </div>
@@ -101,5 +101,5 @@
         </div>
     </section>
     <!-- //bottom-grids-->
-  
+
 {% endblock %}

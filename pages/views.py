@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from listings.choices import *
-
+from django.shortcuts import get_object_or_404
 from listings.models import Listing
 from realtors.models import Realtor
 from  .models import *
@@ -56,6 +56,9 @@ def about(request):
     return render(request, 'pages/about.html', context)
 
 
+
+
+
 def services(request):
     # Get all realtors
     service_mvp = Page.objects.order_by('updated').filter(published=True).filter(mvp=True).filter(service=True)[:1]
@@ -84,3 +87,30 @@ def services(request):
 
 def underconstruction(request):
     return render(request, 'pages/underconstruction.html')
+
+
+def page(request, page_id):
+  page = get_object_or_404(Page, pk=page_id)
+  rentals = Listing.objects.order_by('?').filter(is_published=True).filter(rental=True)[:3]
+  houses = Listing.objects.order_by('?').filter(is_published=True).filter(house=True)[:3]
+  plots = Listing.objects.order_by('?').filter(is_published=True).filter(plot=True)[:3]
+  services = Page.objects.order_by('?').filter(published=True).filter(service=True)[:4]
+
+
+  context = {
+    'services': services,
+    'page': page,
+    'rentals': rentals,
+    'houses': houses,
+    'plots': plots,
+    'county_choices': county_choices,
+    'plot_size_choices': plot_size_choices,
+    'plot_type_choices': plot_type_choices,
+    'house_type_choices': house_type_choices,
+    'price_choices': price_choices,
+    'town_choices': town_choices,
+    'bedroom_choices': bedroom_choices,
+    'for_rs_choices': for_rs_choices,
+  }
+
+  return render(request, 'pages/page.html', context)
