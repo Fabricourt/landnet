@@ -23,7 +23,7 @@
             <h3 class="title-big mw-100">{{page.title|capfirst}}</h3>
             <div> {{page.description|truncatewords:150|safe|capfirst}}
               <br>
-            <a href="#more" class="btn btn-style btn-primary mt-sm-5 mt-4 w3-hide">Read More</a>
+            <a href="{% url 'page' page.id %}" class="btn btn-style btn-primary mt-sm-5 mt-4 w3-hide">Read More</a>
           </div>
         </div>
       </div>
@@ -47,8 +47,8 @@
                         <div class="feature-images">
                             <span class="fa fa-desktop w3-hide" aria-hidden="false"></span>
                         </div>
-                        <h5><a href="#url">{{page.title|capfirst|truncatewords:3}}</a></h5>
-                        <a href="#readmore" class="grid-link">Read More <span class="fa fa-arrow-right"></span></a>
+                        <h5><a href="{% url 'page' page.id %}">{{page.title|capfirst|truncatewords:3}}</a></h5>
+                        <a href="{% url 'page' page.id %}" class="grid-link">Read More <span class="fa fa-arrow-right"></span></a>
                     </div>
                 </div>
                 {% endfor %}
@@ -78,7 +78,7 @@
 
                         <div class="col-sm-10 content4-right-info pl-lg-5">
                             <br><br>
-                            <h6><a href="#url">{{page.title}}</a></h6>
+                            <h6><a href="{% url 'page' page.id %}">{{page.title}}</a></h6>
                             <div class=""> {{page.description|safe|truncatewords:20}}
                         </div>
                     </div>
