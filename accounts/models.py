@@ -13,6 +13,10 @@ class Profile(models.Model):
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     phone_1 = models.CharField(max_length=100, default='+000 000 000 000')
     phone_2 = models.CharField(max_length=100, blank=True, null=True, help_text="optional")
+    whatsapp = models.CharField(max_length=20, blank=True)
+    facebook = models.CharField(max_length=20, blank=True)
+    twitter = models.CharField(max_length=20, blank=True)
+
 
     def __str__(self):
         return f'{self.user.username} Profile'
@@ -30,5 +34,3 @@ def save(self, *args, **kwargs):
         output_size = (300,300)
         img.thumbnail(output_size)
         img.save(self.image.path)
-
-  

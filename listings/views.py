@@ -51,7 +51,7 @@ def listing(request, listing_id):
   listing = get_object_or_404(Listing, pk=listing_id)
   footers = Listing.objects.order_by('?').filter(is_published=True)[:2]
   single = Listing.objects.order_by('?').filter(is_published=True)[:1]
-  listings = Listing.objects.order_by('-list_date').filter(is_published=True)[:6]
+  listings = Listing.objects.order_by('-list_date').filter(is_published=True)[:3]
 
 
   context = {

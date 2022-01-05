@@ -13,13 +13,13 @@ def index(request):
     home_about = Page.objects.order_by('-updated').filter(published=True).filter(home=True).filter(about=True)[:1]
     service = Page.objects.order_by('updated').filter(published=True).filter(service=True)[:3]
     home_service = Page.objects.order_by('updated').filter(published=True).filter(home=True).filter(service=True)[:3]
-    mvp_faq = Page.objects.order_by('created').filter(published=True).filter(mvp=True).filter(faq=True)[:5]
+    home_faq = Page.objects.order_by('created').filter(published=True).filter(mvp=True).filter(faq=True)[:5]
 
     context = {
         'home_about': home_about,
         'home_service': home_service,
         'service': service,
-        'mvp_faq':mvp_faq,
+        'home_faq':home_faq,
         'footers': footers,
         'listings': listings,
         'county_choices': county_choices,
