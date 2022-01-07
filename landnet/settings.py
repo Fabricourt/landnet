@@ -111,17 +111,7 @@ DATABASES = {
 }
 
 
-"""
-DATABASES = { 
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'landnetdb',
-        'USER': 'postgres', 
-        'PASSWORD': 'kamau2030',
-        'HOST': 'localhost'
-    }
-}
-"""
+
 
 
 
@@ -193,20 +183,7 @@ except ImportError:
     pass
 
 
-"""
-# Email config
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-#Actual Gmail address env variable.
-EMAIL_HOST_USER='mfalme2030@gmail.com'
-#Actual Gmail password env variable.
-EMAIL_HOST_PASSWORD='josphatkiniaru'
-EMAIL_USE_TLS=True
-"""
 
-
-# Add to test email:
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'

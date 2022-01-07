@@ -3,7 +3,7 @@ remaining
 * Ask landnet
 *
 * add sitemaps
-* add grog name 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
+* add grog name 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
 * add newsletter
 * add dashboard
 * profile page ****
@@ -20,3 +20,30 @@ remaining
 * adding online
 * blog
 * ( adding google registration )
+
+
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/pyapps/landnet
+ExecStart=/home/ubuntu/pyapps/venv/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/gunicorn.sock \
+          landnet.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo nano /etc/nginx/sites-available/landnet
+
+
+sudo ln -s /etc/nginx/sites-available/landnet /etc/nginx/sites-enabled
+
+sudo ufw delete allow 8000
