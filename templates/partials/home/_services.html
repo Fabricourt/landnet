@@ -36,10 +36,10 @@
             <h3 class="title-big text-center">Related survey services</h3>
             <div class="row mt-lg-5 mt-4">
                 {% if service %} {% for page in service %}
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom: 50px;">
                     <div class="grids5-info">
                         <div style="width: 100%; height:300px">
-                            <a href="{% url 'page' page.id %}" class="d-block zoom"><img src="{{page.photo.url}}" alt="" class="img-fluid service-image" style="height:250px;" /></a>
+                            <a href="{% url 'page' page.id %}" class="d-block zoom"><img src="{{page.photo.url}}" alt="" class="img-fluid service-image" style="width: 100%; height:250px;" /></a>
                             <div class="blog-info">
                                 <span class="fa fa-desktop"></span>
                                 <h4><a href="#service">{{page.title|capfirst}}</a></h4>
