@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %}{% load front_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,34 +10,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Landnet |{% block title %}{% endblock %} </title>
     <link rel="shortcut icon" href="{% static 'assets/images/logoicon.png' type='image/png' %}" class="w3-circle" style="width:100px; height: 100px;"> {% include 'partials/_csslinks.html' %}
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.css" rel="stylesheet">
 </head>
 
-
-<!-- Page Preloder -->
-<div id="preloder">
-    <div class="loader"></div>
-</div>
-
-<!-- top header -->
-{% include 'partials/_topbar.html' %}
-
-
-<!-- Header  -->
-{% include 'partials/_header.html' %}
-
-
-<!-- Main Content -->
-{% block content %} {% endblock %}
-
-<!-- Footer -->
-{% include 'partials/_footer.html' %}
-
-
-<!--  javascripts file here -->
-{% include 'partials/_javascriptlinks.html' %}
-
-
 <body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- top header -->
+    {% include 'partials/_topbar.html' %}
+
+
+    <!-- Header  -->
+    {% include 'partials/_header.html' %}
+
+
+    <!-- Main Content -->
+    {% block content %} {% endblock %}
+
+    <!-- Footer -->
+    {% include 'partials/_footer.html' %}
+
+
+    <!--  javascripts file here -->
+    {% include 'partials/_javascriptlinks.html' %}
+
+
+    <body>
 
 </html>

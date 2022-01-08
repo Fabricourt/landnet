@@ -79,10 +79,11 @@
                         <div class="area-box" style="height:280px">
                             <span class="fa fa-star w3-large w3-card w3-text-red  w3-circle w3-border w3-border-red   "></span>
 
-                            <h4><a href="
+                            <h4>
+                                <a href="
                           {% url 'page' page.id %}
                           " class="title-head">{{ page.title|capfirst }}</a></h4>
-                            <p>{{ page.description|capfirst|safe|truncatewords:8 }}</p>
+                            <p>{{ page.description|capfirst|safe|truncatewords:8 }} </p>
 
                         </div>
                     </div>

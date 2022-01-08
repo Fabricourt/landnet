@@ -30,8 +30,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'jazzmin',
-    #'admin_interface',
-    #'colorfield',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'django.contrib.sites',
+    'django.contrib.sitemaps',
+
 
     #local
     'accounts',
@@ -54,6 +54,10 @@ INSTALLED_APPS = [
     'ckeditor',
     'crispy_forms',
     'ckeditor_uploader',
+    #'anymail',
+    'hitcount',
+   
+    
 
 
 ]
@@ -73,6 +77,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'landnet.urls'
@@ -184,7 +189,7 @@ except ImportError:
 
 
 
-
+#CKEDITOR
 
 CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 
@@ -356,3 +361,5 @@ JAZZMIN_UI_TWEAKS = {
         "success": "btn-outline-success"
     }
 }
+
+

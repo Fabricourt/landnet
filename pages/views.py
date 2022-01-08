@@ -5,6 +5,11 @@ from django.shortcuts import get_object_or_404
 from listings.models import Listing
 from realtors.models import Realtor
 from  .models import *
+from hitcount.models import HitCount
+from hitcount.views import HitCountMixin
+from hitcount.views import HitCountDetailView
+from hitcount.utils import get_hitcount_model
+from hitcount.views import HitCountMixin
 
 
 def index(request):
@@ -41,6 +46,7 @@ def about(request):
     realtors = Realtor.objects.order_by('-hire_date')
     footers = Listing.objects.order_by('?').filter(is_published=True)[:2]
 
+
     # Get MVP
     mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
 
@@ -72,6 +78,7 @@ def services(request):
     # Get MVP
     mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
 
+
     context = {
         'service_mvp': service_mvp,
         'services': services,
@@ -95,6 +102,21 @@ def page(request, page_id):
   houses = Listing.objects.order_by('?').filter(is_published=True).filter(house=True)[:3]
   plots = Listing.objects.order_by('?').filter(is_published=True).filter(plot=True)[:3]
   services = Page.objects.order_by('?').filter(published=True).filter(service=True)[:4]
+
+  context = {}
+
+  # hitcount logic
+  hit_count = get_hitcount_model().objects.get_for_object(page)
+  hits = hit_count.hits
+  hitcontext = context['hitcount'] = {'pk': hit_count.pk}
+  hit_count_response = HitCountMixin.hit_count(request, hit_count)
+  if hit_count_response.hit_counted:
+      hits = hits + 1
+      hitcontext['hit_counted'] = hit_count_response.hit_counted
+      hitcontext['hit_message'] = hit_count_response.hit_message
+      hitcontext['total_hits'] = hits
+
+
 
 
   context = {

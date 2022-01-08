@@ -1,8 +1,14 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages
+from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 from .forms import *
 from listings.models import Listing
+from hitcount.models import HitCount
+from hitcount.views import HitCountMixin
+from hitcount.views import HitCountDetailView
+from hitcount.utils import get_hitcount_model
+from hitcount.views import HitCountMixin
+from contacts.models import *
 
 
 def register(request):
@@ -23,6 +29,24 @@ def register(request):
         }
 
     return render(request, 'accounts/register.html', context)
+
+
+def login(request):
+  if request.method == 'POST':
+    username = request.POST['username']
+    password = request.POST['password']
+
+    user = auth.authenticate(username=username, password=password)
+
+    if user is not None:
+      auth.login(request, user)
+      messages.success(request, 'You are now logged in')
+      return redirect('dashboard')
+    else:
+      messages.error(request, 'Invalid credentials')
+      return redirect('login')
+  else:
+    return render(request, 'accounts/login.html')
 
 
 @login_required
@@ -50,3 +74,20 @@ def profile(request):
     }
 
     return render(request, 'accounts/profile.html', context)
+
+
+def dashboard(request):
+    listing_hits = Listing.objects.order_by('-hit_count_generic__hits')
+    footers = Listing.objects.order_by('?').filter(is_published=True)[:2]
+    contacts = Contact.objects.order_by('-contact_date')
+    contactus = Contactus.objects.order_by('-timestamp')
+   
+
+    context = {
+        'listing_hits' : listing_hits,
+        'footers': footers,
+        'contacts': contacts,
+        'contactus': contactus,
+    }
+
+    return render(request, 'accounts/dashboard.html', context)

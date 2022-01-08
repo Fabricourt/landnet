@@ -1,74 +1,112 @@
-{% extends 'base.html' %} {% load static %} {% load humanize %} {% block title %} {{listing.title|capfirst}} {% endblock %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% load hitcount_tags %} {% load humanize %} {% block title %} {{listing.title|capfirst}} {% endblock %} {% block content %}
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
-.mySlides {display:none}
-.w3-tag, .fa {cursor:pointer}
-.w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
+    html,
+    body,
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-family: "Lato", sans-serif
+    }
+    
+    .mySlides {
+        display: none
+    }
+    
+    .w3-tag,
+    .fa {
+        cursor: pointer
+    }
+    
+    .w3-tag {
+        height: 15px;
+        width: 15px;
+        padding: 0;
+        margin-top: 6px
+    }
 </style>
 
 <!-- Content -->
 <div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
 
-  <div class="w3-panel">
-    <h1><b>{{listing.title}}</b></h1>
-    <p class="w3-right">{{listing.list_date}}</p>
-    <!-- Alerts -->
-    {% include 'partials/_alerts.html' %}
-  <!--Alerts end-->
-  </div>
-
-  <!--slideshow-->
-  {% include 'partials/listings/listing/_slideshow.html' %}
-
-  <!--grid-->
-  {% include 'partials/listings/listing/_grid.html' %}
-
-  <!--description-->
-  {% include 'partials/listings/listing/_description.html' %}
+    <div class="w3-panel">
 
 
-  <!--inquiry-->
-  {% include 'partials/listings/listing/_inquiry.html' %}
+        <h1><b>{{listing.title}}</b></h1>
+
+        <p>
+            <!--staff only-->
+            {% if user.is_staff %}
+            <span class="fa fa-eye w3-left w3-text-red"> {% get_hit_count for listing %}  </span>
+            <!--//staff end -->
+            {% endif %}
+
+            <!-- title -->
+            <span class="w3-right">{{listing.list_date}}</span>
+            <!--title end-->
+        </p>
+
+        <!-- Alerts -->
+        {% include 'partials/_alerts.html' %}
+        <!--Alerts end-->
+    </div>
+
+    <!--slideshow-->
+    {% include 'partials/listings/listing/_slideshow.html' %}
+
+    <!--grid-->
+    {% include 'partials/listings/listing/_grid.html' %}
+
+    <!--description-->
+    {% include 'partials/listings/listing/_description.html' %}
 
 
-
-
-
-
-
-  <script>
-  // Slideshow
-  var slideIndex = 1;
-  showDivs(slideIndex);
-
-  function plusDivs(n) {
-    showDivs(slideIndex += n);
-  }
-
-  function currentDiv(n) {
-    showDivs(slideIndex = n);
-  }
-
-  function showDivs(n) {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("demodots");
-    if (n > x.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = x.length} ;
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" w3-white", "");
-    }
-    x[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " w3-white";
-  }
-  </script>
+    <!--inquiry-->
+    {% include 'partials/listings/listing/_inquiry.html' %}
 
 
 
-{% endblock %}
+
+
+
+
+    <script>
+        // Slideshow
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demodots");
+            if (n > x.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = x.length
+            };
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-white", "");
+            }
+            x[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " w3-white";
+        }
+    </script>
+
+
+
+    {% endblock %}

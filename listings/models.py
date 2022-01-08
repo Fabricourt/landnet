@@ -11,7 +11,7 @@ from django.utils.html import mark_safe
 from PIL import Image
 from django.template.loader import render_to_string
 from ckeditor.fields import RichTextField
-#from hitcount.models import HitCountMixin, HitCount
+from hitcount.models import HitCountMixin, HitCount
 from django.contrib.contenttypes.fields import GenericRelation
 from django.utils.html import mark_safe
 
@@ -144,6 +144,15 @@ class Listing(models.Model):
   is_published = models.BooleanField(default=True)
   list_date = models.DateTimeField(default=datetime.now, blank=True)
   map_link = models.URLField(max_length=200, null=True, blank=True)
+  hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk', related_query_name='hit_count_generic_relation')
+ 
+
+  @property
+  def image_preview(self):
+    if self.pic_main:
+        return mark_safe('<img src="{}" width="100" height="100" />'.format(self.pic_main.url))
+    return ""
+
 
 
   def image_tag(self):

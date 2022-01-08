@@ -1,6 +1,6 @@
-{% extends 'base.html' %} {% load static %} {% load humanize %} {% block title %} Home {% endblock %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% load front_tags %} {% load humanize %} {% block title %} Home {% endblock %} {% block content %}
 
-
+<html>
 <!-- main-slider -->
 {% include 'partials/home/_mainslider.html' %}
 <!-- /main-slider -->
@@ -27,12 +27,13 @@
 
 <!-- map -->
 <div class="map">
-  <div class="title-heading-w3 text-center mx-auto">
-      <h3 class="title-big w3-padding-48">Our location</h3>
-  </div>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4014.989324114157!2d36.9606834!3d-1.1466585999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f4750bf887c93%3A0x39456597939ea554!2sLandnet%20Investments!5e1!3m2!1sen!2ske!4v1634732582817!5m2!1sen!2ske" width="100%" height="550" style="border:0;" allowfullscreen="True" loading="lazy"></iframe>
+    <div class="title-heading-w3 text-center mx-auto">
+        <h3 class="title-big w3-padding-48">Our location</h3>
+    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4014.989324114157!2d36.9606834!3d-1.1466585999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f4750bf887c93%3A0x39456597939ea554!2sLandnet%20Investments!5e1!3m2!1sen!2ske!4v1634732582817!5m2!1sen!2ske"
+        width="100%" height="550" style="border:0;" allowfullscreen="True" loading="lazy"></iframe>
 </div>
 <!-- //map -->
 
-
+</html>
 {% endblock %}

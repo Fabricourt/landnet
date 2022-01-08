@@ -12,7 +12,7 @@ class Contact(models.Model):
   phone = models.CharField(max_length=100)
   message = models.TextField(blank=True)
   pick_date = models.DateTimeField(blank=True, null=True)
-  contact_date = models.DateTimeField(default=datetime.now, blank=True)
+  contact_date = models.DateTimeField(default=timezone.now)
   user_id = models.IntegerField(blank=True)
 
   class Meta:

@@ -4,7 +4,7 @@ from django.utils import timezone
 from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
 #from gallery.models import *
-#from hitcount.models import HitCountMixin, HitCount
+from hitcount.models import HitCountMixin, HitCount
 from django.contrib.contenttypes.fields import GenericRelation
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
@@ -42,8 +42,7 @@ class Page(models.Model):
     cookies = models.BooleanField(default=False)
     core = models.BooleanField(default=False)
     published = models.BooleanField(default=True)
-
-    #hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk',related_query_name='hit_count_generic_relation')
+    hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk',related_query_name='hit_count_generic_relation')
 
 
     def image_tag(self):

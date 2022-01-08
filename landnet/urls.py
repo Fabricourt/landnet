@@ -5,6 +5,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+
+
+
 urlpatterns = [
     path('', include('pages.urls')),
     path('blog/', include('blog.urls')),
@@ -13,6 +16,8 @@ urlpatterns = [
     path('contacts/', include('contacts.urls')),
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    #path('hitcount/', include(('hitcount.urls', 'hitcount'), namespace='hitcount')),
+    path('hitcount/', include(('hitcount.urls', 'hitcount'), namespace='hitcount')),
+ 
+    
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

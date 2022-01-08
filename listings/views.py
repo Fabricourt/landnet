@@ -17,9 +17,14 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-
+from hitcount.models import HitCount
+from hitcount.views import HitCountMixin
+from hitcount.views import HitCountDetailView
+from hitcount.utils import get_hitcount_model
+from hitcount.views import HitCountMixin
 from django.views.generic import ListView
 from.models import Listing
+
 
 
 def index(request):
@@ -53,6 +58,19 @@ def listing(request, listing_id):
   single = Listing.objects.order_by('?').filter(is_published=True)[:1]
   listings = Listing.objects.order_by('-list_date').filter(is_published=True)[:3]
 
+  context = {}
+
+  # hitcount logic
+  hit_count = get_hitcount_model().objects.get_for_object(listing)
+  hits = hit_count.hits
+  hitcontext = context['hitcount'] = {'pk': hit_count.pk}
+  hit_count_response = HitCountMixin.hit_count(request, hit_count)
+  if hit_count_response.hit_counted:
+      hits = hits + 1
+      hitcontext['hit_counted'] = hit_count_response.hit_counted
+      hitcontext['hit_message'] = hit_count_response.hit_message
+      hitcontext['total_hits'] = hits
+
 
   context = {
     'listings': listings,
@@ -70,6 +88,8 @@ def listing(request, listing_id):
   }
 
   return render(request, 'listings/listing.html', context)
+
+
 
 
 class UserListingListView(ListView):

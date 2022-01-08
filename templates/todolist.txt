@@ -47,3 +47,7 @@ sudo nano /etc/nginx/sites-available/landnet
 sudo ln -s /etc/nginx/sites-available/landnet /etc/nginx/sites-enabled
 
 sudo ufw delete allow 8000
+
+
+Business plan
+look for investors

@@ -1,15 +1,13 @@
 from django.urls import path
 from . import views
-from django.urls import path
-from . import views
 from .views import (
 	UserListingListView,
     #ListingDetailView,
     ListingCreateView,
     ListingUpdateView,
     ListingDeleteView
-
 )
+
 
 
 urlpatterns = [
@@ -20,5 +18,6 @@ urlpatterns = [
     path('newlisting/', ListingCreateView.as_view(), name='create-new-listing'),
     path('listing/<int:pk>/update/', ListingUpdateView.as_view(), name='listing-update'),
     path('listing/<int:pk>/delete/', ListingDeleteView.as_view(), name='listing-delete'),
-    path('search', views.search, name='search')
+    path('search', views.search, name='search'),
+    
 ]
