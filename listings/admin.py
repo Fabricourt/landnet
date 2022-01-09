@@ -30,5 +30,8 @@ class ListingAdmin(admin.ModelAdmin):
         ('Property description', {'fields': ['description',], 'classes': ['pretty',],},),
         ('Photos', {'fields': ['photo_main',], 'classes': ['pretty',],},),
         ('Add more photos here', {'fields': ['photo_1', 'photo_2', 'photo_3', 'photo_4', 'photo_5', 'photo_6',], 'classes': ['collapse',],},),
+        ('Metatag', {'fields': ['meta_keywords', 'meta_description', 'meta_title', ], 'classes': ['pretty',], },),
+        ('Metagraph', {'fields': ['meta_ogurl', 'meta_ogtitle', 'meta_ogimage', 'meta_ogimagealt'], 'classes': ['pretty',], },),
+        ('Metatwitter', {'fields': ['meta_twittersite', 'meta_twittercard', 'meta_twitterimagealt', 'meta_twitterimage' ], 'classes': ['pretty',], },),
         ('Publish', {'fields': ['mvp', 'is_published',], 'classes': ['pretty',],},),
     ]

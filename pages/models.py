@@ -43,7 +43,18 @@ class Page(models.Model):
     core = models.BooleanField(default=False)
     published = models.BooleanField(default=True)
     hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk',related_query_name='hit_count_generic_relation')
-
+    meta_keywords = models.CharField(max_length=200, blank=True, null=True, help_text="eg python, django, web, development")
+    meta_description = models.CharField(max_length=500, blank=True, null=True, help_text="description")
+    meta_title = models.CharField(max_length=200, blank=True, null=True, help_text="title ")
+    meta_ogurl = models.CharField(max_length=200, blank=True, null=True, help_text="add a link to the leader like this https://janowski.dev/leader/2020/04/05/mpmwangi")
+    meta_ogtitle = models.CharField(max_length=200, blank=True, null=True, help_text="interesting article title")
+    meta_ogimage = models.CharField(max_length=200, blank=True, null=True, help_text="https://janowski.dev/static/cover.png")
+    meta_ogimagealt = models.CharField(max_length=200, blank=True, null=True, help_text="a green cover image with django logo")
+    meta_twittercard = models.CharField(max_length=200, blank=True, null=True, help_text="summary_large_image")
+    meta_twittersite = models.CharField(max_length=300, blank=True, null=True, help_text="@MaciejJanowski")
+    meta_twitterimage = models.CharField(max_length=200, blank=True, null=True, help_text="https/example.com/image.png")
+    meta_twitterimagealt = models.CharField(max_length=200, blank=True, null=True, help_text="description of image")
+    
 
     def image_tag(self):
         return mark_safe('<img src="%s" width="65px" height="65px" />'%(self.photo.url))

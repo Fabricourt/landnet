@@ -38,65 +38,29 @@
                             </div>
                         </li>
 
-                        <li
-                            {% if '/' == request.path %}
-                              class="nav-item active mr-3"
-                            {% else %}
-                              class="nav-item mr-3"
-                            {% endif %}
-                        >
+                        <li {% if '/' == request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
                             <a class="nav-link" href="{% url 'index' %}">Home </a>
                         </li>
 
-                        <li
-                        {% if 'listings' in request.path %}
-                          class="nav-item active mr-3"
-                        {% else %}
-                          class="nav-item mr-3"
-                        {% endif %}
-                        >
+                        <li {% if 'listings' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
                             <a class="nav-link" href="{% url 'listings' %}">Listings</a>
                         </li>
 
-                        <li
-                        {% if 'about' in request.path %}
-                          class="nav-item active mr-3"
-                        {% else %}
-                          class="nav-item mr-3"
-                        {% endif %}
-                        >
+                        <li {% if 'about' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
                             <a class="nav-link" href="{% url 'about' %}">About</a>
                         </li>
 
 
-                        <li
-                        {% if 'services' in request.path %}
-                          class="nav-item active mr-3"
-                        {% else %}
-                          class="nav-item mr-3"
-                        {% endif %}
-                        >
+                        <li {% if 'services' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
                             <a class="nav-link" href="{% url 'services' %}">Services</a>
                         </li>
 
-                        <li
-                        {% if 'contactus' in request.path %}
-                          class="nav-item active mr-3"
-                        {% else %}
-                          class="nav-item mr-3"
-                        {% endif %}
-                        >
+                        <li {% if 'contactus' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
                             <a class="nav-link" href="{% url 'contactus' %}">Contact</a>
                         </li>
                         {% if user.is_staff %}
-                        <li
-                        {% if 'https://landnet.katata.co.ke/admin/login/?next=/admin/' in request.path %}
-                          class="nav-item active mr-3"
-                        {% else %}
-                          class="nav-item mr-3"
-                        {% endif %}
-                        >
-                            <a class="nav-link" target="blank_true" href="https://landnet.katata.co.ke/admin/login/?next=/admin/">Admin</a>
+                        <li {% if 'https://landnet.co.ke/admin/login/?next=/admin/' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+                            <a class="nav-link" target="blank_true" href="https://landnet.co.ke/admin/login/?next=/admin/">Admin</a>
                         </li>
                         {% endif %}
 
@@ -105,14 +69,8 @@
                     </ul>
                     <ul class="navbar-nav search-right mt-lg-0 mt-2 w3-margin-bottom">
                         {% if user.is_authenticated %}
-                        <li
-                        {% if 'profile' in request.path %}
-                          class="nav-item active mr-3"
-                        {% else %}
-                          class="nav-item mr-3"
-                        {% endif %}
-                        >
-                            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                        <li {% if 'profile' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+                            <a class="nav-link" href="{% url 'dashboard' %}">Account</a>
                         </li>
                         <li class="nav-item ">
                             <a class="w3-text-blue nav-link" href="javascript:{document.getElementById('logout').submit()}"><i class="fas fa-sign-out-alt"></i>Logout</a>
@@ -122,22 +80,10 @@
                             </form>
                         </li>
                         {% else %}
-                        <li
-                        {% if 'register' in request.path %}
-                          class="nav-item active mr-3"
-                        {% else %}
-                          class="nav-item mr-3"
-                        {% endif %}
-                        >
+                        <li {% if 'register' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
                             <a class="nav-link w3-hide" href="{% url 'register' %}"><i class="fas  w3-hide fa-user-plus"></i>Register</a>
                         </li>
-                        <li
-                        {% if 'login' in request.path %}
-                          class="nav-item active mr-3"
-                        {% else %}
-                          class="nav-item mr-3"
-                        {% endif %}
-                        >
+                        <li {% if 'login' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
                             <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>Login</a>
                         </li>
                         {% endif %}
