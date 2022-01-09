@@ -41,7 +41,10 @@ def login(request):
     if user is not None:
       auth.login(request, user)
       messages.success(request, 'You are now logged in')
-      return redirect('dashboard')
+      if request.user.is_staff or request.user.is_superuser: 
+        return redirect('dashboard')
+      else:
+        return redirect('index')
     else:
       messages.error(request, 'Invalid credentials')
       return redirect('login')
