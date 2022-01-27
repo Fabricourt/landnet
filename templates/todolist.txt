@@ -3,7 +3,7 @@ remaining
 * Ask landnet
 *
 * add sitemaps
-* add grog name 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
+* add grog name 
 * add newsletter
 * add dashboard
 * profile page ****
@@ -21,33 +21,78 @@ remaining
 * blog
 * ( adding google registration )
 
+Type
+------------
+notification system
+sms system
+chat system
+email system
+subscription & newsletter system
+blog system
+tutorial
 
-[Unit]
-Description=gunicorn daemon
-Requires=gunicorn.socket
-After=network.target
+client
+ - name
+ - phone
+ - facebook
+ - whatsapp
+ - twitter
+ - tiktok
+ - address
+ - email
+ - description
+ - timestamp
+ - boolean company
+ - boolean solo
+ 
+Prospects 
+ - name
+ - phone
+ - facebook
+ - whatsapp
+ - twitter
+ - tiktok
+ - address
+ - email
+ - description
+ - timestamp
+ - boolean company
+ - boolean solo
 
-[Service]
-User=ubuntu
-Group=www-data
-WorkingDirectory=/home/ubuntu/pyapps/landnet
-ExecStart=/home/ubuntu/pyapps/venv/bin/gunicorn \
-          --access-logfile - \
-          --workers 3 \
-          --bind unix:/run/gunicorn.sock \
-          landnet.wsgi:application
-
-[Install]
-WantedBy=multi-user.target
-
-
-sudo nano /etc/nginx/sites-available/landnet
-
-
-sudo ln -s /etc/nginx/sites-available/landnet /etc/nginx/sites-enabled
-
-sudo ufw delete allow 8000
+Competition
+ - name
+ - phone
+ - facebook
+ - whatsapp
+ - twitter
+ - tiktok
+ - address
+ - email
+ - description
+ - History
+ - future_plans
+ - type of busines
+ - timestamp
+ - boolean company
+ - boolean solo
 
 
-Business plan
-look for investors
+
+project
+- project title
+- project Description
+- project photos ....
+- project timestamp
+
+Gallery
+- album
+  * title
+  * Description
+  * Photos
+
+- photo
+  * photo_main
+  * photo
+  * description
+  * timestamp
+  

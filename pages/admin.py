@@ -11,9 +11,9 @@ from .models import *
 class PageAdmin(admin.ModelAdmin):
     list_display = ('image_tag', 'title',  'about', 'service', 'faq', 'policy', 'home', 'core', 'mvp',  'published', 'privacy', 'cookies', )
     list_display_links = ('title',)
-    list_filter = ('updated', 'about', 'service', 'home', 'core', 'mvp',   'faq', 'policy', 'privacy', 'cookies',  'published',)
-    list_editable = ( 'about', 'service', 'faq', 'core', 'policy', 'privacy', 'cookies', 'home', 'mvp',  'published',)
     search_fields = ('title',)
+    #list_filter = ( 'about', 'service', 'home',)
+    list_editable = ( 'about', 'service', 'faq', 'core', 'policy', 'privacy', 'cookies', 'home', 'mvp',  'published',)
     prepopulated_fields = {'slug': ('title',)}
     #raw_id_fields = ('realtor',)
     date_hierarchy = 'updated'

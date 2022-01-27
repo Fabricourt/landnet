@@ -10303,7 +10303,7 @@ button.navbar-toggler.collapsed .icon-expand {
   position: relative; }
 
 .w3l-main-slider .banner-view {
-  background: url(../images/banner1.jpg) no-repeat center;
+  background: url(../images/banner1.webp) no-repeat center;
   background-size: cover;
   min-height: calc(100vh - 140px);
   width:100%;
@@ -10314,17 +10314,17 @@ button.navbar-toggler.collapsed .icon-expand {
   padding: 3em 0; }
 
 .w3l-main-slider .banner-top1 {
-  background: url(../images/banner2.jpg) no-repeat 0px 0px;
+  background: url(../images/banner2.webp) no-repeat 0px 0px;
   width:100%;
   background-size: cover; }
 
 .w3l-main-slider .banner-top2 {
-  background: url(../images/banner3.jpg) no-repeat 0px 0px;
+  background: url(../images/banner3.webp) no-repeat 0px 0px;
   width:100%;
   background-size: cover; }
 
 .w3l-main-slider .banner-top3 {
-  background: url(../images/banner4.jpg) no-repeat 0px 0px;
+  background: url(../images/banner4.webp) no-repeat 0px 0px;
   width:100%;
   background-size: cover; }
 
@@ -11132,10 +11132,10 @@ a.blog-image .iconic-plus span.fa {
 
 
 .w3l-services-block-3 .service1:hover {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.67)), url(../images/s1.jpg); }
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.67)), url(../images/s2.webp); }
 
 .w3l-services-block-3 .service2:hover {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.67)), url(../images/s2.jpg); }
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.67)), url(../images/s1.jpg); }
 
 .w3l-services-block-3 .service3:hover {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.67)), url(../images/s3.jpg); }

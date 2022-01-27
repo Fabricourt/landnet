@@ -11,7 +11,7 @@ admin.site.register(Feature)
 class ListingAdmin(admin.ModelAdmin):
     list_display = ( 'image_tag', 'title', 'realtor', 'for_rs',  'plot', 'house', 'rental', 'mvp', 'is_published',)
     list_display_links = ('title',)
-    list_filter = ('list_date', 'realtor', 'plot', 'house', 'rental', 'mvp',  'neighbourhood', 'town', 'county', 'is_published', 'list_date' )
+    list_filter = ('plot', 'house', 'rental',)
     list_editable = ( 'for_rs', 'plot', 'house', 'rental', 'mvp', 'is_published',)
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}

@@ -287,10 +287,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 GOOGLE_MAPS_API_KEY = 'AIzaSyDg-rwJKGb1as5C-e3fljLAWhYJSRAHu-w'
 
-#django admin interface
-# only if django version >= 3.0
-X_FRAME_OPTIONS = 'SAMEORIGIN'
-SILENCED_SYSTEM_CHECKS = ['security.W019']
+
 
 
 JAZZMIN_SETTINGS = {
