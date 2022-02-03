@@ -1,0 +1,62 @@
+{% load static %}
+<!-- Description -->
+<div class="row mb-5">
+    <div class="col-md-8">
+        {{ listing.description|safe }}
+    </div>
+
+    <div class="col-md-4">
+        {% if listing.realtor.user.profile.image %}
+        <div class="card mb-3">
+            <img class="card-img-top" src="{{ listing.realtor.user.profile.image.url }}" alt="" style="height:300px">
+            <div class="card-body">
+                <h5 class="card-title">Property Realtor</h5>
+                <h6 class="text-secondary">{{ listing.realtor.user.first_name|capfirst }} {{ listing.realtor.user.last_name|capfirst }} <br> {% if listing.realtor.user.profile.phone_1 %} {{ listing.realtor.user.profile.phone_1 }} {% else %} {{ listing.realtor.mobile }} {% endif %}
+
+                </h6>
+            </div>
+        </div>
+        <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
+        <br><br> {% endif %}
+        <!-- listings -->
+        {% if listings %}
+        <div class="w3-white w3-content ">
+            <div class="w3-container w3-padding w3-light-grey">
+                <h2>More Listings</h2>
+            </div>
+            <ul class="w3-ul w3-hoverable w3-white">
+
+                {% for listing in listings %} {% if listing.photo_main %}
+                <li class="w3-padding-16">
+                    <a href="{% url 'listing' listing.id %}">
+                        <img src="{{listing.photo_main.url}}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">House for sale</span>
+                        <br>
+                        <span>{{listing.title|capfirst}}</span>
+                    </a>
+                </li>
+                {% endif %} {% endfor %}
+            </ul>
+        </div>
+
+        {% endif %}
+
+        <div class="w3-win8-crimson w3-round">
+
+            <center>
+                <h2 class=" w3-text-white w3-padding  w3-large">SEARCH MORE</h2>
+            </center>
+            {% include 'partials/search/_search.html' %}
+            <br>
+
+
+        </div>
+    </div>
+
+
+
+    <br>
+</div>
+</div>
+
+</div>

@@ -1,0 +1,119 @@
+{% load static %}
+
+<header id="site-header" class="fixed-top">
+    <section class="w3l-header-4">
+        <div class="container">
+
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <h1>
+                    <a class="navbar-brand" href="{% url 'index' %}">
+                        <span class="">
+                      <img src="{% static 'assets/images/logo.png' %}" class="w3-circle w3-hide-small " style="width:180px; height:105px;" />
+                      <img src="{% static 'assets/images/logo.png' %}" class="w3-circle w3-hide-large w3-hide-medium " style="padding:7px; width:130px; height:75px;" />
+                    </span>
+                    </a>
+                </h1>
+                <button class="navbar-toggler w3-border w3-text-red w3-white w3-circle collapsed" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="width:40px: height:40px">
+                  <span class="fa icon-expand fa-bars"></span>
+                  <span class="fa icon-close fa-times"></span>
+              </button>
+                <br>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav w3-margin-bottom">
+                        <!-- toggle switch for light and dark theme -->
+                        <li class="nav-item w3-hide-large w3-hide-medium">
+                            <div class="w3-right">
+                                <nav class="navigation">
+                                    <div class="theme-switch-wrapper">
+                                        <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <div class="mode-container w3-right">
+                                        <i class="gg-sun"></i>
+                                        <i class="gg-moon"></i>
+                                    </div>
+                                </label>
+                                    </div>
+                                </nav>
+                            </div>
+                        </li>
+
+                        <li {% if '/' == request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+                            <a class="nav-link" href="{% url 'index' %}">Home </a>
+                        </li>
+
+                        <li {% if 'listings' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+                            <a class="nav-link" href="{% url 'listings' %}">Listings</a>
+                        </li>
+
+                        <li {% if 'about' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+                            <a class="nav-link" href="https://landnet.co.ke/#about">About</a>
+                        </li>
+
+
+                        <li {% if 'services' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+                            <a class="nav-link" href="https://landnet.co.ke/#services">Services</a>
+                        </li>
+
+                        <li {% if 'contactus' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+                            <a class="nav-link" href="{% url 'contactus' %}">Contact</a>
+                        </li>
+                        {% if user.is_staff %}
+                        <li {% if 'https://landnet.co.ke/admin/login/?next=/admin/' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+                            <a class="nav-link" target="blank_true" href="https://landnet.co.ke/admin/login/?next=/admin/">Admin</a>
+                        </li>
+                        {% endif %}
+
+
+
+                    </ul>
+                    <ul class="navbar-nav search-right mt-lg-0 mt-2 w3-margin-bottom">
+                        {% if user.is_authenticated %}
+                        <li {% if 'profile' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+                            <a class="nav-link" href="{% url 'dashboard' %}">Account</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="w3-text-blue nav-link" href="javascript:{document.getElementById('logout').submit()}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                            <form action="{% url 'logout' %}" method="POST" id="logout">
+                                {% csrf_token %}
+                                <input type="hidden">
+                            </form>
+                        </li>
+                        {% else %}
+                        <li {% if 'register' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+                            <a class="nav-link w3-hide" href="{% url 'register' %}"><i class="fas  w3-hide fa-user-plus"></i>Register</a>
+                        </li>
+                        <li {% if 'login' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+                            <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>Login</a>
+                        </li>
+                        {% endif %}
+
+                        <li class="nav-item mr-2 w3-hide w3-margin-bottom" title="Search">
+                            <a href="#search" class="btn search-search">
+                                <span class="fa fa-search w3-large" aria-hidden="true"></span></a>
+
+                        </li>
+                        <li class="nav-item  w3-hide w3-margin-bottom"><a href="{% url 'contactus' %}" class="btn  btn-primary  d-none d-lg-block  mr-3">Request Quote</a>
+                            <br>
+                        </li>
+
+                    </ul>
+
+                    <!-- //toggle switch for light and dark theme -->
+                    <!-- search popup -->
+                    <div id="search" class="pop-overlay">
+                        <div class="popup">
+                            <form action="error.html" method="GET" class="d-flex">
+                                <input type="search" placeholder="Search.." name="search" required="required" autofocus>
+                                <button type="submit"><span class="fa fa-search"></span></button>
+                                <a class="close" href="#close">&times;</a>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /search popup -->
+                </div>
+
+            </nav>
+        </div>
+    </section>
+</header>

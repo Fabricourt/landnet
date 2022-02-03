@@ -1,0 +1,26 @@
+{% load static %}
+
+<br><br>
+<section class="w3-padding w3-content" style="max-width: 800px;">
+    <div class="row ">
+        <h5>Listing Messages</h5>
+        {% for contact in contacts %}
+        <div class="col-sm-12 w3-margin-top w3-card   w3-hover-shadow ">
+            <br>
+            <span class="fa fa-star w3-text-green w3-right w3-padding"></span>
+            <span class="w3-padding-24">
+                    <strong>{{contact.contact_date}}</strong>
+                    <br> {{contact.name }}<br><i>{{contact.email}}</i><br>{{contact.phone}}     
+            </span>
+
+            <hr class="w3-green">
+            <span class="w3-small"> <strong>Listing </strong> {{contact.listing|capfirst}}</span><br><br>
+
+            <span class="w3-large"><strong>Message </strong><span class="w3-margin-top">{{contact.message}}</span></span><br><br>
+
+            <p class="w3-margin-bottom w3-small"><strong>Viewing on</strong><span class="w3-text-grey">{{contact.contact_date}}</p>
+
+        </div>
+        {% endfor %}
+
+</section>

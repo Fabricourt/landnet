@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% load static %} {% load crispy_forms_tags %} {% block title %} Register {% endblock %} {% block content %}
+<section class='w3-win8-crimson'>
+        <div class="w3-display-container">
+          <img src="{% static 'assets/images/banner4.jpg' %}"  width="55%" height="700"/>
+            <div class="w3-display-middle w3-win8-crimson w3-padding w3-card-4 w3-hide-large w3-hide-medium w3-round-large" style="width: 100%; opacity:0.9">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4 w3-win8-crimson w3-card-4 w3-round-large w3-padding">Register</legend>
+                        <!-- Alerts -->
+                        {% include 'partials/_alerts.html' %}
+                        <!--Alerts end-->
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn w3-block w3-2019-evening-blue w3-hover-white" type="submit">Sign Up</button>
+                    </div>
+                </form>
+                <div class="border-top pt-3">
+                    <small class="w3-right">
+                            Already Have An Account? <a class="ml-2 btn w3-evening-blue w3-hover-white" href="{% url 'login' %}">Sign In</a>
+                        </small>
+                </div>
+            </div>
+
+            <div class="w3-display-middle w3-win8-crimson w3-padding w3-card-4 w3-hide-small w3-round-large" style="width: 555px; opacity:0.9">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4  w3-win8-crimson w3-card-4 w3-round-large w3-padding">Register</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn w3-block w3-2019-evening-blue w3-hover-white " type="submit">Sign Up</button>
+                    </div>
+                </form>
+                <div class="border-top pt-3">
+                    <small class="w3-right">
+                            Already Have An Account? <a class="ml-2 btn w3-2019-evening-blue w3-hover-white" href="{% url 'login' %}">Sign In</a>
+                        </small>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+</section>
+{% endblock content %}

@@ -1,0 +1,174 @@
+{% load static %} }
+
+
+<!--- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script> -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+
+<script type="text/javascript" src="{% static 'assets/ckeditor/ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/ckeditor/ckeditor/ckeditor.js' %}"></script>
+
+<script src="{% static  'assets/js/chart.js' %}"></script>
+
+<script src="{% static  'assets/js/jquery-3.3.1.min.js' %}"></script>
+
+<script src="{% static  'assets/js/theme-change.js' %}"></script>
+<!-- //light and dark mode switch js -->
+
+<script src="{% static  'assets/js/jquery-1.9.1.min.js' %}"></script>
+<!-- faq -->
+<script>
+    const items = document.querySelectorAll(".accordion button");
+
+    function toggleAccordion() {
+        const itemToggle = this.getAttribute('aria-expanded');
+
+        for (i = 0; i < items.length; i++) {
+            items[i].setAttribute('aria-expanded', 'false');
+        }
+
+        if (itemToggle == 'false') {
+            this.setAttribute('aria-expanded', 'true');
+        }
+    }
+
+    items.forEach(item => item.addEventListener('click', toggleAccordion));
+</script>
+<!-- //faq -->
+
+<script src="{% static  'assets/js/easyResponsiveTabs.js' %}"></script>
+<!--Plug-in Initialisation-->
+<script type="text/javascript">
+    $(document).ready(function() {
+        //Horizontal Tab
+        $('#parentHorizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion
+            width: 'auto', //auto or any width like 600px
+            fit: true, // 100% fit in a container
+            tabidentify: 'hor_1', // The tab groups identifier
+            activate: function(event) { // Callback function if tab is switched
+                var $tab = $(this);
+                var $info = $('#nested-tabInfo');
+                var $name = $('span', $info);
+                $name.text($tab.text());
+                $info.show();
+            }
+        });
+    });
+</script>
+
+<!-- owl carousel -->
+<script src="{% static  'assets/js/owl.carousel.js' %}"></script>
+<!-- script for banner slider-->
+<script>
+    $(document).ready(function() {
+        $('.owl-one').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: false,
+            responsiveClass: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplaySpeed: 1000,
+            autoplayHoverPause: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                480: {
+                    items: 1
+                },
+                667: {
+                    items: 1
+                },
+                1000: {
+                    items: 1
+                }
+            }
+        })
+    })
+</script>
+<!-- //script -->
+<!-- owl carousel -->
+
+
+<!-- script for customers -->
+<script>
+    $(document).ready(function() {
+        $('.owl-three').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: false,
+            dots: false,
+            responsiveClass: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplaySpeed: 1000,
+            autoplayHoverPause: false,
+            responsive: {
+                0: {
+                    items: 3,
+                    nav: true
+                },
+                480: {
+                    items: 3,
+                    nav: true
+                },
+                667: {
+                    items: 3,
+                    nav: true
+                },
+                800: {
+                    items: 4,
+                    nav: true
+                },
+                1000: {
+                    items: 5,
+                    nav: true
+                }
+            }
+        })
+    })
+</script>
+<!-- //customers owlcarousel -->
+
+<!-- disable body scroll which navbar is in active -->
+<!-- <script>
+  $(function () {
+    $('.navbar-toggler').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });
+</script> -->
+<!-- disable body scroll which navbar is in active -->
+
+<!--/MENU-JS-->
+<script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+</script>
+
+<script src="{% static  'assets/js/bootstrap.min.js' %}"></script>
+<!-- //bootstrap js -->

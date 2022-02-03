@@ -1,0 +1,14 @@
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+/media/advert_pics
+/media/Pages_photos
+/media/photos
+/media/profile_pics
+venv
+realT
+.vscode
+todolist.txt

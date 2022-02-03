@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'clearcache',
     'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -56,6 +57,8 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     #'anymail',
     'hitcount',
+    'debug_toolbar',
+
    
     
 
@@ -77,6 +80,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     
 ]
 
@@ -360,3 +364,18 @@ JAZZMIN_UI_TWEAKS = {
 }
 
 
+import mimetypes
+mimetypes.add_type("application/javascript", ".js", True)
+
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
+
+def show_toolbar(request):
+    return True
+    
+DEBUG_TOOLBAR_CONFIG = {
+'INTERCEPT_REDIRECTS': False,
+"SHOW_TOOLBAR_CALLBACK": show_toolbar,
+'INSERT_BEFORE': '</head>',
+'INTERCEPT_REDIRECTS': False,
+'RENDER_PANELS': True,
+}
