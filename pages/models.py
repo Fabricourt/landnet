@@ -12,7 +12,6 @@ from django.utils.safestring import mark_safe
 from django.utils.html import mark_safe
 from django.template.loader import render_to_string
 from datetime import datetime
-from django.utils.text import slugify
 
 
 CSSORDER = (
@@ -23,7 +22,7 @@ CSSORDER = (
 
 class Page(models.Model):
     title = models.CharField(max_length=500, blank=False, null=True, unique=True, help_text='particular name of the area as known to the locals')
-    slug = models.SlugField(max_length=250, blank=True, null=True, unique_for_date='created')
+    slug = models.SlugField(max_length=250, unique_for_date='created')
     description = RichTextField(blank=True, null=True)
     photo =  models.ImageField(upload_to='Pages_photos/%Y/%m/%d/', default="landscape.jpg", blank=True,null=True, help_text="your image must be jpg format to save")
     youtube = models.TextField(blank=True, null=True)
@@ -42,15 +41,12 @@ class Page(models.Model):
     privacy = models.BooleanField(default=False)
     cookies = models.BooleanField(default=False)
     core = models.BooleanField(default=False)
-    linked = models.BooleanField(default=True)
-    draft = models.BooleanField(default=False)
     published = models.BooleanField(default=True)
     hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk',related_query_name='hit_count_generic_relation')
     meta_keywords = models.CharField(max_length=200, blank=True, null=True, help_text="eg python, django, web, development")
     meta_description = models.CharField(max_length=500, blank=True, null=True, help_text="description")
     meta_title = models.CharField(max_length=200, blank=True, null=True, help_text="title ")
-
-    
+ 
 
     def image_tag(self):
         return mark_safe('<img src="%s" width="65px" height="65px" />'%(self.photo.url))

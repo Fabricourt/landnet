@@ -9,16 +9,11 @@ from .models import *
 
 @admin.register(Page)
 class PageAdmin(admin.ModelAdmin):
-    list_display = ('image_tag', 'title',  'about', 'service', 'faq', 'policy', 'home', 'mvp',  'published', )
+    list_display = ('image_tag', 'title',  'about', 'service', 'faq', 'policy', 'home', 'core', 'mvp',  'published', 'privacy', 'cookies', )
     list_display_links = ('title',)
-    list_filter = ('updated', 'about', 'service', 'home', 'mvp', 'faq', 'policy',  'published',)
-    list_editable = ( 'about', 'service', 'faq',  'policy', 'home', 'mvp',  'published',)
     search_fields = ('title',)
     #list_filter = ( 'about', 'service', 'home',)
-    list_editable = ( 'about', 'service', 'faq',  'policy', 'home', 'mvp',  'published',)
-    search_fields = ('title',)
-    #list_filter = ( 'about', 'service', 'home',)
-    list_editable = ( 'about', 'service', 'faq',  'policy',  'home', 'mvp',  'published',)
+    list_editable = ( 'about', 'service', 'faq', 'core', 'policy', 'privacy', 'cookies', 'home', 'mvp',  'published',)
     prepopulated_fields = {'slug': ('title',)}
     #raw_id_fields = ('realtor',)
     date_hierarchy = 'updated'
@@ -34,9 +29,11 @@ class PageAdmin(admin.ModelAdmin):
         ('Meta', {'fields': ['title', 'slug',], 'classes': ['pretty',], },),
         ('About', {'fields': ['description',], 'classes': ['pretty',], },),
         ('Media', {'fields': ['photo', 'youtube',], 'classes': ['pretty',], },),
-        ('Orders', {'fields': ['linked', 'cssorder', 'mvp', 'home', 'about', 'service', 'faq', 'policy'], 'classes': ['pretty',], },),
+        ('Orders', {'fields': ['cssorder', 'mvp', 'home', 'about', 'service', 'faq', 'policy', 'privacy', 'cookies', 'core',], 'classes': ['pretty',], },),
         ('Metatag', {'fields': ['meta_keywords', 'meta_description', 'meta_title', ], 'classes': ['pretty',], },),
-        ('Publish', {'fields': ['draft', 'published',], 'classes': ['pretty',], },),
+        ('Metagraph', {'fields': ['meta_ogurl', 'meta_ogtitle', 'meta_ogimage', 'meta_ogimagealt'], 'classes': ['pretty',], },),
+        ('Metatwitter', {'fields': ['meta_twittersite', 'meta_twittercard', 'meta_twitterimagealt', 'meta_twitterimage', ], 'classes': ['pretty',], },),
+        ('Publish', {'fields': ['published',], 'classes': ['pretty',], },),
     
      
     ]

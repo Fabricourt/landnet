@@ -58,7 +58,6 @@ INSTALLED_APPS = [
     #'anymail',
     'hitcount',
     'debug_toolbar',
-
    
     
 
@@ -363,6 +362,13 @@ JAZZMIN_UI_TWEAKS = {
     }
 }
 
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    "3.109.128.100",
+
+    # ...
+]
 
 import mimetypes
 mimetypes.add_type("application/javascript", ".js", True)
@@ -379,3 +385,4 @@ DEBUG_TOOLBAR_CONFIG = {
 'INTERCEPT_REDIRECTS': False,
 'RENDER_PANELS': True,
 }
+
